@@ -1,7 +1,11 @@
 .card {
   margin-bottom: $content-padding;
   box-shadow: $card-box-shadow;
-  transition: all 0.3s ease-in-out, background 0s, color 0s, border-color 0s;
+  transition:
+    all 0.3s ease-in-out,
+    background 0s,
+    color 0s,
+    border-color 0s;
   .card {
     box-shadow: none !important;
   }
@@ -33,12 +37,16 @@
     bottom: 0;
     overflow: auto;
   }
-  .card-body[class*='border-bottom-'] {
+  .card-body[class*="border-bottom-"] {
     border-bottom-width: 2px !important;
   }
   .card-img-overlay {
     &.bg-overlay {
       background: rgba($black, 0.45);
+    }
+
+    &.card-bg-overlay {
+      background: #00cfe81a;
     }
     .text-muted {
       color: $gray-800 !important;
@@ -78,7 +86,7 @@
           width: 1rem;
           font-size: 1rem;
         }
-        &[data-action='collapse'] {
+        &[data-action="collapse"] {
           i,
           svg {
             transition: all 0.25s ease-out;
@@ -159,6 +167,61 @@
 //--------------- Advance Cards ---------------
 //---------------------------------------------
 
+// welcome Card
+.card-welcome {
+  color: rgba($black, 1);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  width: 100%;
+  height: 240px;
+  h1 {
+    font-weight: 900;
+  }
+  &_bg {
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+  }
+  &_text-content {
+    .header-text {
+      color: #000;
+      font-size: 24px;
+      font-weight: 800;
+    }
+    height: 100%;
+  }
+}
+
+// stats card
+.card-stats {
+  height: auto;
+  width: 100%;
+  .card-img {
+    object-fit: cover;
+  }
+  .card-stats-header {
+    font-size: 16px;
+    font-weight: 800;
+  }
+
+  .icon-opacity-bg {
+    width: 50px;
+    height: 50px;
+    color: #00b300;
+    border-radius: 6px;
+    padding: 8px;
+    background: var(--green-color-50, #00b3001a);
+  }
+  .icon-opacity-bg-2 {
+    background: var(--green-color-50, #00b3001a);
+    width: 70px;
+    height: 30px;
+    border-radius: 6px;
+    color: #00b300;
+    font-weight: 700;
+  }
+}
 // Congratulations Card
 .card-congratulations {
   background: linear-gradient(118deg, rgba($primary, 1), rgba($primary, 0.7));
@@ -191,6 +254,7 @@
     margin-bottom: 2rem;
   }
 }
+
 // congratulation medal card
 .congratulation-medal {
   position: absolute;
@@ -445,10 +509,10 @@
 
     #revenue-report-chart {
       .apexcharts-series {
-        &[seriesName='Earning'] {
+        &[seriesName="Earning"] {
           transform: scaleY(0.965);
         }
-        &[seriesName='Expense'] {
+        &[seriesName="Expense"] {
           transform: scaleY(1.035);
         }
       }
@@ -500,4 +564,10 @@
       }
     }
   }
+}
+
+//Revive CSS
+#app-dashboard {
+  overflow-y: scroll;
+  overflow-x: hidden;
 }

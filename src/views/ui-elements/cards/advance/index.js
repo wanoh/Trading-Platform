@@ -21,6 +21,8 @@ import CardBrowserState from './CardBrowserState'
 import CardTransactions from './CardTransactions'
 import CardEmployeesTasks from './CardEmployeesTask'
 import CardCongratulations from './CardCongratulations'
+import CardWelcome from './CardWelcome'
+import CardStats from './CardStats'
 
 // ** Context
 import { ThemeColors } from '@src/utility/context/ThemeColors'
@@ -33,10 +35,15 @@ const Cards = () => {
   const trackBgColor = '#e9ecef'
   return (
     <Fragment>
-      <Breadcrumbs title='Advanced Cards' data={[{ title: 'Cards' }, { title: 'Advanced Card' }]} />
+      <Breadcrumbs
+        title='Advanced Cards'
+        data={[{ title: 'Cards' }, { title: 'Advanced Card' }]}
+      />
       <Row className='match-height'>
         <Col md='6' lg='7' sm='12'>
           <CardCongratulations />
+          <CardWelcome />
+          <CardStats />
         </Col>
         <Col md='6' lg='5' sm='12'>
           <CardMedal />

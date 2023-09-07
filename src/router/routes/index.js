@@ -13,6 +13,10 @@ import ExtensionsRoutes from './Extensions'
 import PageLayoutsRoutes from './PageLayouts'
 import AuthenticationRoutes from './Authentication'
 
+// Revive Routes Imports
+import DashboardRoute from './Dashboard'
+import UsersRoute from './Users'
+
 // ** Layouts
 import BlankLayout from '@layouts/BlankLayout'
 import VerticalLayout from '@src/layouts/VerticalLayout'
@@ -29,7 +33,7 @@ import { isObjEmpty } from '@utils'
 const getLayout = {
   blank: <BlankLayout />,
   vertical: <VerticalLayout />,
-  horizontal: <HorizontalLayout />
+  horizontal: <HorizontalLayout />,
 }
 
 // ** Document title
@@ -42,6 +46,8 @@ const DefaultRoute = '/dashboard/ecommerce'
 const Routes = [
   ...AuthenticationRoutes,
   ...DashboardRoutes,
+  ...DashboardRoute,
+  ...UsersRoute,
   ...AppRoutes,
   ...PagesRoutes,
   ...UiElementRoutes,
@@ -49,10 +55,10 @@ const Routes = [
   ...PageLayoutsRoutes,
   ...FormRoutes,
   ...TablesRoutes,
-  ...ChartsRoutes
+  ...ChartsRoutes,
 ]
 
-const getRouteMeta = route => {
+const getRouteMeta = (route) => {
   if (isObjEmpty(route.element.props)) {
     if (route.meta) {
       return { routeMeta: route.meta }
@@ -67,12 +73,13 @@ const MergeLayoutRoutes = (layout, defaultLayout) => {
   const LayoutRoutes = []
 
   if (Routes) {
-    Routes.filter(route => {
+    Routes.filter((route) => {
       let isBlank = false
       // ** Checks if Route layout or Default layout matches current layout
       if (
         (route.meta && route.meta.layout && route.meta.layout === layout) ||
-        ((route.meta === undefined || route.meta.layout === undefined) && defaultLayout === layout)
+        ((route.meta === undefined || route.meta.layout === undefined) &&
+          defaultLayout === layout)
       ) {
         let RouteTag = PrivateRoute
 
@@ -105,19 +112,19 @@ const MergeLayoutRoutes = (layout, defaultLayout) => {
   return LayoutRoutes
 }
 
-const getRoutes = layout => {
+const getRoutes = (layout) => {
   const defaultLayout = layout || 'vertical'
   const layouts = ['vertical', 'horizontal', 'blank']
 
   const AllRoutes = []
 
-  layouts.forEach(layoutItem => {
+  layouts.forEach((layoutItem) => {
     const LayoutRoutes = MergeLayoutRoutes(layoutItem, defaultLayout)
 
     AllRoutes.push({
       path: '/',
       element: getLayout[layoutItem] || getLayout[defaultLayout],
-      children: LayoutRoutes
+      children: LayoutRoutes,
     })
   })
   return AllRoutes

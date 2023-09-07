@@ -36,12 +36,12 @@ const ChartJS = () => {
     { skin } = useSkin(),
     labelColor = skin === 'dark' ? '#b4b7bd' : '#6e6b7b',
     tooltipShadow = 'rgba(0, 0, 0, 0.25)',
+    successColorShade = '#28dac6',
     gridLineColor = 'rgba(200, 200, 200, 0.2)',
     lineChartPrimary = '#666ee8',
     lineChartDanger = '#ff4961',
     warningColorShade = '#ffbd1f',
     warningLightColor = '#FDAC34',
-    successColorShade = '#28dac6',
     primaryColorShade = '#836AF9',
     infoColorShade = '#299AFF',
     yellowColor = '#ffe800',
@@ -52,19 +52,30 @@ const ChartJS = () => {
 
   return (
     <Fragment>
-      <Breadcrumbs title='React ChartJS 2' data={[{ title: 'Charts' }, { title: 'ChartJS' }]} />
+      <Breadcrumbs
+        title='React ChartJS 2'
+        data={[{ title: 'Charts' }, { title: 'ChartJS' }]}
+      />
       <Row className='match-height'>
         <Col sm='12'>
           <p>
             React wrapper for Chart.js. Click{' '}
-            <a href='https://github.com/jerairrest/react-chartjs-2' target='_blank' rel='noopener noreferrer'>
+            <a
+              href='https://github.com/jerairrest/react-chartjs-2'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
               here
             </a>{' '}
             for github repo.
           </p>
         </Col>
         <Col xl='6' sm='12'>
-          <BarChart success={successColorShade} labelColor={labelColor} gridLineColor={gridLineColor} />
+          <BarChart
+            success={successColorShade}
+            labelColor={labelColor}
+            gridLineColor={gridLineColor}
+          />
         </Col>
         <Col xl='6' sm='12'>
           <HorizontalBarChart

@@ -13,6 +13,7 @@ import TableZeroConfig from './TableZeroConfig'
 import TableWithButtons from './TableWithButtons'
 import TableMultilingual from './TableMultilingual'
 import DataTablesReOrder from './TableColumnReorder'
+import BasicTransactionsTable from './BasicTransactionsTable'
 
 // ** Styles
 import '@styles/react/libs/tables/react-dataTable-component.scss'
@@ -20,9 +21,13 @@ import '@styles/react/libs/tables/react-dataTable-component.scss'
 const Tables = () => {
   return (
     <Fragment>
-      <Breadcrumbs title='Datatables Basic' data={[{ title: 'Datatables' }, { title: 'Datatables Basic' }]} />
+      <Breadcrumbs
+        title='Datatables Basic'
+        data={[{ title: 'Datatables' }, { title: 'Datatables Basic' }]}
+      />
       <Row>
         <Col sm='12'>
+          <BasicTransactionsTable />
           <TableZeroConfig />
         </Col>
         <Col sm='12'>
