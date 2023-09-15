@@ -29,8 +29,28 @@ const data = {
       email: 'gslixby0@abc.net.au',
       currentPlan: 'enterprise',
       status: 'inactive',
+      onlineStatus: 'Online',
+      progressStatus: 'Completed',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Verified',
+      proofOfVerificationStatus: 'Completed',
+      city: 'Accra',
+      state: 'Greater Accra',
+      zipCode: '0233',
+      addressLineOne: '12, Business',
+      addressLineTwo: 'Mall Road',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: 'GDHDH39',
+
       avatar: '',
-      avatarColor: 'light-primary'
+      avatarColor: 'light-primary',
     },
     {
       id: 2,
@@ -43,8 +63,28 @@ const data = {
       contact: '(472) 607-9137',
       email: 'hredmore1@imgur.com',
       currentPlan: 'team',
-      status: 'pending',
-      avatar: avatar10
+      status: 'Pending',
+      onlineStatus: 'Offline',
+      progressStatus: 'Initiated',
+      reason: 'Uncleared Trade Orders',
+      market: 'CDFs',
+      plan: 'Platinum',
+      depositAmount: 93842,
+      withdrawalAmount: 2844,
+      transactionStatus: 'Approved',
+      type: 'Credit Card',
+      verification: 'Unverified',
+      proofOfVerificationStatus: 'Pending',
+      city: 'Osu',
+      state: 'Greater Accra',
+      zipCode: '0233',
+      addressLineOne: '13, Avenue',
+      addressLineTwo: 'Oxford Street',
+      proof: 'Proof of Identity',
+      date: '03/08/2021',
+      userId: '7HDIEDS',
+
+      avatar: avatar10,
     },
     {
       id: 3,
@@ -58,7 +98,27 @@ const data = {
       email: 'msicely2@who.int',
       currentPlan: 'enterprise',
       status: 'active',
-      avatar: avatar1
+      onlineStatus: 'Online',
+      progressStatus: 'Initiated',
+      reason: 'Open Trade Orders',
+      market: 'Stocks',
+      plan: 'Platinum',
+      depositAmount: 3454,
+      withdrawalAmount: 2445,
+      transactionStatus: 'Declined',
+      type: 'Crypto Currency',
+      verification: 'Unverified',
+      proofOfVerificationStatus: 'No Uploads',
+      city: 'Accra',
+      state: 'Greater Accra',
+      zipCode: '0233',
+      addressLineOne: '12, Business',
+      addressLineTwo: 'Mall Road',
+      proof: 'Proof of Location',
+      date: '03/08/2021',
+      userId: 'B3U38EN',
+
+      avatar: avatar1,
     },
     {
       id: 4,
@@ -72,7 +132,27 @@ const data = {
       email: 'crisby3@wordpress.com',
       currentPlan: 'team',
       status: 'inactive',
-      avatar: avatar9
+      onlineStatus: 'Offline',
+      progressStatus: 'Completed',
+      reason: 'Open Trade Orders',
+      market: 'Crypto Currency',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'Approved',
+      type: 'Crypto Currency',
+      verification: 'Verified',
+      proofOfVerificationStatus: 'Pending',
+      city: 'Accra',
+      state: 'Greater Accra',
+      zipCode: '0233',
+      addressLineOne: '12, Business',
+      addressLineTwo: 'Mall Road',
+      proof: 'Proof of Communication',
+      date: '03/08/2021',
+      userId: 'HU0ELKW',
+
+      avatar: avatar9,
     },
     {
       id: 5,
@@ -85,8 +165,28 @@ const data = {
       contact: '(669) 914-1078',
       email: 'mhurran4@yahoo.co.jp',
       currentPlan: 'enterprise',
-      status: 'pending',
-      avatar: avatar10
+      status: 'Pending',
+      onlineStatus: 'Online',
+      progressStatus: 'Litigated',
+      reason: 'Pending Trade Orders',
+      market: 'Forex',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'Declined',
+      type: 'Crypto Currency',
+      verification: 'Verified',
+      proofOfVerificationStatus: 'Completed',
+      city: 'Accra',
+      state: 'Greater Accra',
+      zipCode: '0233',
+      addressLineOne: '12, Business',
+      addressLineTwo: 'Mall Road',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: '30DKFNS',
+
+      avatar: avatar10,
     },
     {
       id: 6,
@@ -100,8 +200,28 @@ const data = {
       email: 'shalstead5@shinystat.com',
       currentPlan: 'company',
       status: 'active',
+      onlineStatus: 'Online',
+      progressStatus: 'Litigated',
+      reason: 'Open Trade Orders',
+      market: 'Crypto Currency',
+      plan: 'Gold',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'Declined',
+      type: 'Paypal',
+      verification: 'Unverified',
+      proofOfVerificationStatus: 'Completed',
+      city: 'Accra',
+      state: 'Greater Accra',
+      zipCode: '0233',
+      addressLineOne: '12, Business',
+      addressLineTwo: 'Mall Road',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: 'KDOW037',
+
       avatar: '',
-      avatarColor: 'light-success'
+      avatarColor: 'light-success',
     },
     {
       id: 7,
@@ -114,9 +234,29 @@ const data = {
       contact: '(825) 977-8152',
       email: 'bgallemore6@boston.com',
       currentPlan: 'company',
-      status: 'pending',
+      status: 'Pending',
+      onlineStatus: 'Offline',
+      progressStatus: 'Processing',
+      reason: 'Uncleared Trade Orders',
+      market: 'Stocks',
+      plan: 'Gold',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'Approved',
+      type: 'Paypal',
+      verification: 'Unverified',
+      proofOfVerificationStatus: 'Completed',
+      city: 'Accra',
+      state: 'Greater Accra',
+      zipCode: '0233',
+      addressLineOne: '12, Business',
+      addressLineTwo: 'Mall Road',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: 'HDGE393',
+
       avatar: '',
-      avatarColor: 'light-danger'
+      avatarColor: 'light-danger',
     },
     {
       id: 8,
@@ -129,8 +269,22 @@ const data = {
       contact: '(187) 440-0934',
       email: 'kliger7@vinaora.com',
       currentPlan: 'enterprise',
-      status: 'pending',
-      avatar: avatar9
+      status: 'Pending',
+      onlineStatus: 'Online',
+      progressStatus: 'Processing',
+      reason: 'Uncleared Trade Orders',
+      market: 'CDFs',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Unverified',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: '83JDYHX',
+
+      avatar: avatar9,
     },
     {
       id: 9,
@@ -143,8 +297,22 @@ const data = {
       contact: '(978) 146-5443',
       email: 'fscotfurth8@dailymotion.com',
       currentPlan: 'team',
-      status: 'pending',
-      avatar: avatar2
+      status: 'Pending',
+      onlineStatus: 'Offline',
+      progressStatus: 'Initiated',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'Declined',
+      type: 'Paypal',
+      verification: 'Verified',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
+      avatar: avatar2,
     },
     {
       id: 10,
@@ -158,7 +326,21 @@ const data = {
       email: 'jbellany9@kickstarter.com',
       currentPlan: 'company',
       status: 'inactive',
-      avatar: avatar9
+      onlineStatus: 'Offline',
+      progressStatus: 'Processing',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Platinum',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'Approved',
+      type: 'Credit Card',
+      verification: 'Verified',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
+      avatar: avatar9,
     },
     {
       id: 11,
@@ -172,7 +354,21 @@ const data = {
       email: 'jwharltona@oakley.com',
       currentPlan: 'team',
       status: 'inactive',
-      avatar: avatar4
+      onlineStatus: 'Online',
+      progressStatus: 'Completed',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Platinum',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Verified',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
+      avatar: avatar4,
     },
     {
       id: 12,
@@ -185,8 +381,22 @@ const data = {
       contact: '(234) 464-0600',
       email: 'shallamb@hugedomains.com',
       currentPlan: 'team',
-      status: 'pending',
-      avatar: avatar5
+      status: 'Pending',
+      onlineStatus: 'Online',
+      progressStatus: 'Completed',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Verified',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
+      avatar: avatar5,
     },
     {
       id: 13,
@@ -200,7 +410,21 @@ const data = {
       email: 'ypottiec@privacy.gov.au',
       currentPlan: 'basic',
       status: 'inactive',
-      avatar: avatar7
+      onlineStatus: 'Offline',
+      progressStatus: 'Completed',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Gold',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Verified',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
+      avatar: avatar7,
     },
     {
       id: 14,
@@ -214,7 +438,21 @@ const data = {
       email: 'mkraused@stanford.edu',
       currentPlan: 'team',
       status: 'active',
-      avatar: avatar9
+      onlineStatus: 'Online',
+      progressStatus: 'Completed',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Gold',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Verified',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
+      avatar: avatar9,
     },
     {
       id: 15,
@@ -228,7 +466,21 @@ const data = {
       email: 'zmcclevertye@soundcloud.com',
       currentPlan: 'enterprise',
       status: 'active',
-      avatar: avatar2
+      onlineStatus: 'Online',
+      progressStatus: 'Completed',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Verified',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
+      avatar: avatar2,
     },
     {
       id: 16,
@@ -242,7 +494,21 @@ const data = {
       email: 'bemblinf@wired.com',
       currentPlan: 'company',
       status: 'active',
-      avatar: avatar6
+      onlineStatus: 'Online',
+      progressStatus: 'Completed',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Verified',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
+      avatar: avatar6,
     },
     {
       id: 17,
@@ -256,8 +522,22 @@ const data = {
       email: 'bmylesg@amazon.com',
       currentPlan: 'basic',
       status: 'active',
+      onlineStatus: 'Online',
+      progressStatus: 'Completed',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Verified',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
       avatar: '',
-      avatarColor: 'light-warning'
+      avatarColor: 'light-warning',
     },
     {
       id: 18,
@@ -271,7 +551,21 @@ const data = {
       email: 'bbinerh@mozilla.com',
       currentPlan: 'team',
       status: 'active',
-      avatar: avatar7
+      onlineStatus: 'Online',
+      progressStatus: 'Completed',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Verified',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
+      avatar: avatar7,
     },
     {
       id: 19,
@@ -285,8 +579,22 @@ const data = {
       email: 'tbruntjeni@sitemeter.com',
       currentPlan: 'enterprise',
       status: 'active',
+      onlineStatus: 'Online',
+      progressStatus: 'Completed',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Verified',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
       avatar: '',
-      avatarColor: 'light-info'
+      avatarColor: 'light-info',
     },
     {
       id: 20,
@@ -300,7 +608,21 @@ const data = {
       email: 'wburlandj@uiuc.edu',
       currentPlan: 'team',
       status: 'inactive',
-      avatar: avatar6
+      onlineStatus: 'Online',
+      progressStatus: 'Completed',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Verified',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
+      avatar: avatar6,
     },
     {
       id: 21,
@@ -314,7 +636,21 @@ const data = {
       email: 'irena.dubrovna@wayne.com',
       currentPlan: 'team',
       status: 'active',
-      avatar: avatar1
+      onlineStatus: 'Online',
+      progressStatus: 'Completed',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Verified',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
+      avatar: avatar1,
     },
     {
       id: 22,
@@ -328,7 +664,21 @@ const data = {
       email: 'jlysterl@guardian.co.uk',
       currentPlan: 'company',
       status: 'inactive',
-      avatar: avatar8
+      onlineStatus: 'Online',
+      progressStatus: 'Completed',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Verified',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
+      avatar: avatar8,
     },
     {
       id: 23,
@@ -341,8 +691,22 @@ const data = {
       contact: '(254) 845-4107',
       email: 'kskitterelm@washingtonpost.com',
       currentPlan: 'basic',
-      status: 'pending',
-      avatar: avatar3
+      status: 'Pending',
+      onlineStatus: 'Online',
+      progressStatus: 'Completed',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Verified',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
+      avatar: avatar3,
     },
     {
       id: 24,
@@ -355,8 +719,22 @@ const data = {
       contact: '(700) 783-7498',
       email: 'chatherleighn@washington.edu',
       currentPlan: 'team',
-      status: 'pending',
-      avatar: avatar2
+      status: 'Pending',
+      onlineStatus: 'Online',
+      progressStatus: 'Completed',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Verified',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
+      avatar: avatar2,
     },
     {
       id: 25,
@@ -369,9 +747,23 @@ const data = {
       contact: '(227) 598-1841',
       email: 'amiccoo@whitehouse.gov',
       currentPlan: 'enterprise',
-      status: 'pending',
+      status: 'Pending',
+      onlineStatus: 'Online',
+      progressStatus: 'Completed',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Verified',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
       avatar: '',
-      avatarColor: 'light-primary'
+      avatarColor: 'light-primary',
     },
     {
       id: 26,
@@ -385,7 +777,21 @@ const data = {
       email: 'hhassonp@bizjournals.com',
       currentPlan: 'basic',
       status: 'inactive',
-      avatar: avatar4
+      onlineStatus: 'Online',
+      progressStatus: 'Completed',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Verified',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
+      avatar: avatar4,
     },
     {
       id: 27,
@@ -399,7 +805,21 @@ const data = {
       email: 'gjacombsq@jigsy.com',
       currentPlan: 'enterprise',
       status: 'active',
-      avatar: avatar10
+      onlineStatus: 'Online',
+      progressStatus: 'Completed',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Verified',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
+      avatar: avatar10,
     },
     {
       id: 28,
@@ -413,8 +833,22 @@ const data = {
       email: 'bkildayr@mashable.com',
       currentPlan: 'team',
       status: 'active',
+      onlineStatus: 'Online',
+      progressStatus: 'Completed',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Verified',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
       avatar: '',
-      avatarColor: 'light-success'
+      avatarColor: 'light-success',
     },
     {
       id: 29,
@@ -428,7 +862,21 @@ const data = {
       email: 'cpinyons@behance.net',
       currentPlan: 'team',
       status: 'active',
-      avatar: avatar7
+      onlineStatus: 'Online',
+      progressStatus: 'Completed',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Verified',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
+      avatar: avatar7,
     },
     {
       id: 30,
@@ -441,9 +889,23 @@ const data = {
       contact: '(332) 803-1983',
       email: 'imallindinet@shinystat.com',
       currentPlan: 'team',
-      status: 'pending',
+      status: 'Pending',
+      onlineStatus: 'Online',
+      progressStatus: 'Completed',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Verified',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
       avatar: '',
-      avatarColor: 'light-warning'
+      avatarColor: 'light-warning',
     },
     {
       id: 31,
@@ -456,8 +918,22 @@ const data = {
       contact: '(551) 379-7460',
       email: 'gmeinekenu@hc360.com',
       currentPlan: 'basic',
-      status: 'pending',
-      avatar: avatar1
+      status: 'Pending',
+      onlineStatus: 'Online',
+      progressStatus: 'Completed',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Verified',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
+      avatar: avatar1,
     },
     {
       id: 32,
@@ -470,8 +946,22 @@ const data = {
       contact: '(974) 829-0911',
       email: 'rsnowballv@indiegogo.com',
       currentPlan: 'basic',
-      status: 'pending',
-      avatar: avatar5
+      status: 'Pending',
+      onlineStatus: 'Online',
+      progressStatus: 'Completed',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Verified',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
+      avatar: avatar5,
     },
     {
       id: 33,
@@ -485,7 +975,21 @@ const data = {
       email: 'remerw@blogtalkradio.com',
       currentPlan: 'basic',
       status: 'active',
-      avatar: avatar8
+      onlineStatus: 'Online',
+      progressStatus: 'Completed',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Verified',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
+      avatar: avatar8,
     },
     {
       id: 34,
@@ -499,7 +1003,21 @@ const data = {
       email: 'ofibbensx@booking.com',
       currentPlan: 'company',
       status: 'active',
-      avatar: avatar4
+      onlineStatus: 'Online',
+      progressStatus: 'Completed',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Verified',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
+      avatar: avatar4,
     },
     {
       id: 35,
@@ -512,9 +1030,23 @@ const data = {
       contact: '(350) 589-8520',
       email: 'smacgilfoyley@bigcartel.com',
       currentPlan: 'company',
-      status: 'pending',
+      status: 'Pending',
+      onlineStatus: 'Online',
+      progressStatus: 'Completed',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Verified',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
       avatar: '',
-      avatarColor: 'light-danger'
+      avatarColor: 'light-danger',
     },
     {
       id: 36,
@@ -528,8 +1060,22 @@ const data = {
       email: 'brosebothamz@tripadvisor.com',
       currentPlan: 'team',
       status: 'inactive',
+      onlineStatus: 'Online',
+      progressStatus: 'Completed',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Verified',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
       avatar: '',
-      avatarColor: 'light-info'
+      avatarColor: 'light-info',
     },
     {
       id: 37,
@@ -543,7 +1089,21 @@ const data = {
       email: 'shebblethwaite10@arizona.edu',
       currentPlan: 'company',
       status: 'inactive',
-      avatar: avatar9
+      onlineStatus: 'Online',
+      progressStatus: 'Completed',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Verified',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
+      avatar: avatar9,
     },
     {
       id: 38,
@@ -557,7 +1117,21 @@ const data = {
       email: 'mpiccard11@vimeo.com',
       currentPlan: 'enterprise',
       status: 'inactive',
-      avatar: avatar1
+      onlineStatus: 'Online',
+      progressStatus: 'Completed',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Verified',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
+      avatar: avatar1,
     },
     {
       id: 39,
@@ -570,9 +1144,23 @@ const data = {
       contact: '(531) 731-0928',
       email: 'twidmore12@bravesites.com',
       currentPlan: 'team',
-      status: 'pending',
+      status: 'Pending',
+      onlineStatus: 'Online',
+      progressStatus: 'Completed',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Verified',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
       avatar: '',
-      avatarColor: 'light-primary'
+      avatarColor: 'light-primary',
     },
     {
       id: 40,
@@ -586,7 +1174,21 @@ const data = {
       email: 'fdesporte13@omniture.com',
       currentPlan: 'company',
       status: 'active',
-      avatar: avatar6
+      onlineStatus: 'Online',
+      progressStatus: 'Completed',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Verified',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
+      avatar: avatar6,
     },
     {
       id: 41,
@@ -599,9 +1201,23 @@ const data = {
       contact: '(315) 329-3578',
       email: 'ebaldetti14@theguardian.com',
       currentPlan: 'team',
-      status: 'pending',
+      status: 'Pending',
+      onlineStatus: 'Online',
+      progressStatus: 'Completed',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Verified',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
       avatar: '',
-      avatarColor: 'light-success'
+      avatarColor: 'light-success',
     },
     {
       id: 42,
@@ -615,8 +1231,22 @@ const data = {
       email: 'brossiter15@craigslist.org',
       currentPlan: 'team',
       status: 'inactive',
+      onlineStatus: 'Online',
+      progressStatus: 'Completed',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Verified',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
       avatar: '',
-      avatarColor: 'light-danger'
+      avatarColor: 'light-danger',
     },
     {
       id: 43,
@@ -630,8 +1260,22 @@ const data = {
       email: 'mmcnirlan16@hc360.com',
       currentPlan: 'basic',
       status: 'inactive',
+      onlineStatus: 'Online',
+      progressStatus: 'Completed',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Verified',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
       avatar: '',
-      avatarColor: 'light-warning'
+      avatarColor: 'light-warning',
     },
     {
       id: 44,
@@ -645,8 +1289,22 @@ const data = {
       email: 'vkoschek17@abc.net.au',
       currentPlan: 'team',
       status: 'active',
+      onlineStatus: 'Online',
+      progressStatus: 'Completed',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Verified',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
       avatar: '',
-      avatarColor: 'light-info'
+      avatarColor: 'light-info',
     },
     {
       id: 45,
@@ -659,8 +1317,22 @@ const data = {
       contact: '(659) 385-6808',
       email: 'cperot18@goo.ne.jp',
       currentPlan: 'team',
-      status: 'pending',
-      avatar: avatar3
+      status: 'Pending',
+      onlineStatus: 'Offline',
+      progressStatus: 'Completed',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Verified',
+      proof: 'Proof of Account',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
+      avatar: avatar3,
     },
     {
       id: 46,
@@ -673,9 +1345,29 @@ const data = {
       contact: '(200) 586-2264',
       email: 'soffner19@mac.com',
       currentPlan: 'enterprise',
-      status: 'pending',
+      status: 'Pending',
+      onlineStatus: 'Online',
+      progressStatus: 'Completed',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Verified',
+      proof: 'Proof of *******',
+      proofOfVerificationStatus: 'No Uploads',
+      city: 'Accra',
+      state: 'Greater Accra',
+      zipCode: '0233',
+      addressLineOne: '12, Business',
+      addressLineTwo: 'Mall Road',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
       avatar: '',
-      avatarColor: 'light-primary'
+      avatarColor: 'light-primary',
     },
     {
       id: 47,
@@ -689,7 +1381,27 @@ const data = {
       email: 'kcourtliff1a@bbc.co.uk',
       currentPlan: 'basic',
       status: 'active',
-      avatar: avatar1
+      onlineStatus: 'Online',
+      progressStatus: 'Completed',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Verified',
+      proof: 'Proof of Communications',
+      proofOfVerificationStatus: 'No Uploads',
+      city: 'Accra',
+      state: 'Greater Accra',
+      zipCode: '0233',
+      addressLineOne: '12, Business',
+      addressLineTwo: 'Mall Road',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
+      avatar: avatar1,
     },
     {
       id: 48,
@@ -702,9 +1414,29 @@ const data = {
       contact: '(344) 262-7270',
       email: 'owind1b@yandex.ru',
       currentPlan: 'basic',
-      status: 'pending',
+      status: 'Pending',
+      onlineStatus: 'Online',
+      progressStatus: 'Completed',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Verified',
+      proof: 'Proof of Location',
+      proofOfVerificationStatus: 'Pending',
+      city: 'Accra',
+      state: 'Greater Accra',
+      zipCode: '0233',
+      addressLineOne: '12, Business',
+      addressLineTwo: 'Mall Road',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
       avatar: '',
-      avatarColor: 'light-success'
+      avatarColor: 'light-success',
     },
     {
       id: 49,
@@ -718,8 +1450,28 @@ const data = {
       email: 'pdurber1c@gov.uk',
       currentPlan: 'team',
       status: 'inactive',
+      onlineStatus: 'Online',
+      progressStatus: 'Completed',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Verified',
+      proof: 'Proof of Identity',
+      proofOfVerificationStatus: 'Completed',
+      city: 'Accra',
+      state: 'Greater Accra',
+      zipCode: '0233',
+      addressLineOne: '12, Business',
+      addressLineTwo: 'Mall Road',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
       avatar: '',
-      avatarColor: 'light-danger'
+      avatarColor: 'light-danger',
     },
     {
       id: 50,
@@ -733,16 +1485,36 @@ const data = {
       email: 'bkrabbe1d@home.pl',
       currentPlan: 'company',
       status: 'active',
-      avatar: avatar9
-    }
-  ]
+      onlineStatus: 'Offline',
+      progressStatus: 'Completed',
+      reason: 'Uncleared Trade Orders',
+      market: 'Forex',
+      plan: 'Silver',
+      depositAmount: 2933,
+      withdrawalAmount: 94302,
+      transactionStatus: 'New',
+      type: 'Bank',
+      verification: 'Verified',
+      proof: 'Proof of Account',
+      proofOfVerificationStatus: 'Completed',
+      city: 'Accra',
+      state: 'Greater Accra',
+      zipCode: '0233',
+      addressLineOne: '12, Business',
+      addressLineTwo: 'Mall Road',
+      date: '03/08/2021',
+      userId: '74UDH39',
+
+      avatar: avatar9,
+    },
+  ],
 }
 
 // GET ALL DATA
 mock.onGet('/api/users/list/all-data').reply(200, data.users)
 
-// POST: Add new user
-mock.onPost('/apps/users/add-user').reply(config => {
+// POST: Add New user
+mock.onPost('/apps/users/add-user').reply((config) => {
   // Get event from post data
   const user = JSON.parse(config.data)
   const highestValue = data.users.reduce((a, b) => (a.id > b.id ? a : b)).id
@@ -755,7 +1527,7 @@ mock.onPost('/apps/users/add-user').reply(config => {
 })
 
 // GET Updated DATA
-mock.onGet('/api/users/list/data').reply(config => {
+mock.onGet('/api/users/list/data').reply((config) => {
   const {
     q = '',
     page = 1,
@@ -763,25 +1535,29 @@ mock.onGet('/api/users/list/data').reply(config => {
     perPage = 10,
     sort = 'asc',
     status = null,
+
     currentPlan = null,
-    sortColumn = 'fullName'
+    sortColumn = 'fullName',
   } = config
 
   /* eslint-disable  */
   const queryLowered = q.toLowerCase()
 
-  const dataAsc = data.users.sort((a, b) => (a[sortColumn] < b[sortColumn] ? -1 : 1))
+  const dataAsc = data.users.sort((a, b) =>
+    a[sortColumn] < b[sortColumn] ? -1 : 1
+  )
 
   const dataToFilter = sort === 'asc' ? dataAsc : dataAsc.reverse()
 
   const filteredData = dataToFilter.filter(
-    user =>
+    (user) =>
       (user.email.toLowerCase().includes(queryLowered) ||
         user.fullName.toLowerCase().includes(queryLowered) ||
         user.billing.toLowerCase().includes(queryLowered)) &&
       user.role === (role || user.role) &&
       user.currentPlan === (currentPlan || user.currentPlan) &&
-      user.status === (status || user.status)
+      user.status === (status || user.status) &&
+      user.onlineStatus === (onlineStatus || user.onlineStatus)
   )
   /* eslint-enable  */
 
@@ -789,27 +1565,27 @@ mock.onGet('/api/users/list/data').reply(config => {
     200,
     {
       total: filteredData.length,
-      users: paginateArray(filteredData, perPage, page)
-    }
+      users: paginateArray(filteredData, perPage, page),
+    },
   ]
 })
 
 // GET USER
-mock.onGet('/api/users/user').reply(config => {
+mock.onGet('/api/users/user').reply((config) => {
   const { id } = config
-  const user = data.users.find(i => i.id === id)
+  const user = data.users.find((i) => i.id === id)
   return [200, { user }]
 })
 
 // DELETE: Deletes User
-mock.onDelete('/apps/users/delete').reply(config => {
+mock.onDelete('/apps/users/delete').reply((config) => {
   // Get user id from URL
   let userId = config.id
 
   // Convert Id to number
   userId = Number(userId)
 
-  const userIndex = data.users.findIndex(t => t.id === userId)
+  const userIndex = data.users.findIndex((t) => t.id === userId)
   data.users.splice(userIndex, 1)
 
   return [200]

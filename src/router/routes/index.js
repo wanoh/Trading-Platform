@@ -16,6 +16,10 @@ import AuthenticationRoutes from './Authentication'
 // Revive Routes Imports
 import DashboardRoute from './Dashboard'
 import UsersRoute from './Users'
+import DepositRoute from './Deposits'
+import WithdrawalRoute from './Withdrawal'
+import PaymentRoute from './Payment'
+import BusinessProfile from './BusinessProfile'
 
 // ** Layouts
 import BlankLayout from '@layouts/BlankLayout'
@@ -40,7 +44,10 @@ const getLayout = {
 const TemplateTitle = '%s - Vuexy React Admin Template'
 
 // ** Default Route
-const DefaultRoute = '/dashboard/ecommerce'
+// const DefaultRoute = '/dashboard/ecommerce'
+
+// ** default route changed
+const DefaultRoute = '/dashboard'
 
 // ** Merge Routes
 const Routes = [
@@ -48,6 +55,10 @@ const Routes = [
   ...DashboardRoutes,
   ...DashboardRoute,
   ...UsersRoute,
+  ...DepositRoute,
+  ...WithdrawalRoute,
+  ...PaymentRoute,
+  ...BusinessProfile,
   ...AppRoutes,
   ...PagesRoutes,
   ...UiElementRoutes,

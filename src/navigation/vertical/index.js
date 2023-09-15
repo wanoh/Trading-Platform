@@ -7,13 +7,13 @@ import others from './others'
 import charts from './charts'
 import dashboards from './dashboards'
 import uiElements from './ui-elements'
-import custom from './custom'
+import reviveApps from './custom'
 import dashboard from './dashboard'
 
 // ** Merge & Export
 export default [
   ...dashboard,
-  ...custom,
+  ...reviveApps,
   ...dashboards,
   ...apps,
   ...pages,

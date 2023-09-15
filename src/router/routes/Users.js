@@ -1,17 +1,17 @@
 // ** React Imports
 import { lazy } from 'react'
-import { Navigate } from 'react-router-dom'
 
-const UserList = lazy(() => import('../../views/users'))
+const UserList = lazy(() => import('../../views/revive/users/list'))
+const UserView = lazy(() => import('../../views/revive/users/view'))
 
 const AppRoutes = [
   {
     element: <UserList />,
-    path: '/users',
-    meta: {
-      appLayout: true,
-      className: 'users',
-    },
+    path: '/user',
+  },
+  {
+    element: <UserView />,
+    path: '/user/view/:id',
   },
 ]
 

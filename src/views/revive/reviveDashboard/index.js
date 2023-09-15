@@ -2,8 +2,8 @@
 import { useContext } from 'react'
 
 // ** Images
-import userImg from '../../assets/images/revive/userImg.png'
-import agent from '../../assets/images/revive/support.png'
+import userImg from '../../../assets/images/revive/userImg.png'
+import agent from '../../../assets/images/revive/support.png'
 
 // ** Icons
 import { User, Feather } from 'react-feather'
@@ -31,7 +31,7 @@ import 'chart.js/auto'
 import '@styles/react/libs/charts/apex-charts.scss'
 import '@styles/base/pages/dashboard-ecommerce.scss'
 
-const Users = () => {
+const Dashboard = () => {
   const balanceLabel = ['Total Available', 'Total']
   const transactionsLabel = ['Deposits', 'Withdrawals']
 
@@ -54,7 +54,7 @@ const Users = () => {
     greyLightColor = '#EDF1F4'
 
   return (
-    <div id='app-dashboard'>
+    <div>
       <Row className='match-height'>
         <Col lg='6' sm='12'>
           <WelcomeCard />
@@ -127,4 +127,4 @@ const Users = () => {
   )
 }
 
-export default Users
+export default Dashboard

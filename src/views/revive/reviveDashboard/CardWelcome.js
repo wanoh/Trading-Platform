@@ -1,7 +1,7 @@
 // ** Reactstrap Imports
 import { Card, CardImgOverlay, CardImg, CardText } from 'reactstrap'
 
-import BgImg from '../../assets/images/revive/backgroundimg.jpg'
+import BgImg from '../../../assets/images/revive/backgroundimg.jpg'
 // ** Images
 
 const CardCongratulations = () => {

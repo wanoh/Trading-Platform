@@ -8,10 +8,10 @@ import Sidebar from './Sidebar'
 import { columns } from './columns'
 
 // ** Store & Actions
-import { getAllData, getData } from '../apps/user/store'
+import { getAllData, getData } from '../../apps/user/store'
 import { useDispatch, useSelector } from 'react-redux'
 
-// ** Thñyyjĵird Party Components
+// ** Third Party Components
 import Select from 'react-select'
 import ReactPaginate from 'react-paginate'
 import DataTable from 'react-data-table-component'
@@ -126,58 +126,13 @@ const CustomHeader = ({
           xl='6'
           className='d-flex align-items-sm-center justify-content-xl-end justify-content-start flex-xl-nowrap flex-wrap flex-sm-row flex-column pe-xl-1 p-0 mt-xl-0 mt-1'
         >
-          <div className='d-flex align-items-center mb-sm-0 mb-1 me-1'>
-            <label className='mb-0' htmlFor='search-invoice'>
-              Search:
-            </label>
-            <Input
-              id='search-invoice'
-              className='ms-50 w-100'
-              type='text'
-              value={searchTerm}
-              onChange={(e) => handleFilter(e.target.value)}
-            />
-          </div>
-
           <div className='d-flex align-items-center table-header-actions'>
-            <UncontrolledDropdown className='me-1'>
-              <DropdownToggle color='secondary' caret outline>
-                <Share className='font-small-4 me-50' />
-                <span className='align-middle'>Export</span>
-              </DropdownToggle>
-              <DropdownMenu>
-                <DropdownItem className='w-100'>
-                  <Printer className='font-small-4 me-50' />
-                  <span className='align-middle'>Print</span>
-                </DropdownItem>
-                <DropdownItem
-                  className='w-100'
-                  onClick={() => downloadCSV(store.data)}
-                >
-                  <FileText className='font-small-4 me-50' />
-                  <span className='align-middle'>CSV</span>
-                </DropdownItem>
-                <DropdownItem className='w-100'>
-                  <Grid className='font-small-4 me-50' />
-                  <span className='align-middle'>Excel</span>
-                </DropdownItem>
-                <DropdownItem className='w-100'>
-                  <File className='font-small-4 me-50' />
-                  <span className='align-middle'>PDF</span>
-                </DropdownItem>
-                <DropdownItem className='w-100'>
-                  <Copy className='font-small-4 me-50' />
-                  <span className='align-middle'>Copy</span>
-                </DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
-
             <Button
-              className='add-new-user'
+              className='add-new-user text-nowrap'
               color='primary'
               onClick={toggleSidebar}
             >
-              Add New User
+              Add New Transaction
             </Button>
           </div>
         </Col>
@@ -198,9 +153,9 @@ const UsersList = () => {
   const [sortColumn, setSortColumn] = useState('id')
   const [rowsPerPage, setRowsPerPage] = useState(10)
   const [sidebarOpen, setSidebarOpen] = useState(false)
-  const [currentRole, setCurrentRole] = useState({
+  const [currentType, setCurrentType] = useState({
     value: '',
-    label: 'Select Role',
+    label: 'Select Type',
   })
   const [currentPlan, setCurrentPlan] = useState({
     value: '',
@@ -225,7 +180,7 @@ const UsersList = () => {
         q: searchTerm,
         page: currentPage,
         perPage: rowsPerPage,
-        role: currentRole.value,
+        role: currentType.value,
         status: currentStatus.value,
         currentPlan: currentPlan.value,
       })
@@ -233,28 +188,19 @@ const UsersList = () => {
   }, [dispatch, store.data.length, sort, sortColumn, currentPage])
 
   // ** User filter options
-  const roleOptions = [
-    { value: '', label: 'Select Role' },
-    { value: 'admin', label: 'Admin' },
-    { value: 'author', label: 'Author' },
-    { value: 'editor', label: 'Editor' },
-    { value: 'maintainer', label: 'Maintainer' },
-    { value: 'subscriber', label: 'Subscriber' },
-  ]
-
-  const planOptions = [
-    { value: '', label: 'Select Plan' },
-    { value: 'basic', label: 'Basic' },
-    { value: 'company', label: 'Company' },
-    { value: 'enterprise', label: 'Enterprise' },
-    { value: 'team', label: 'Team' },
+  const typeOptions = [
+    { value: '', label: 'Select Type' },
+    { value: 'bank', label: 'Bank' },
+    { value: 'paypal', label: 'Paypal' },
+    { value: 'creditCard', label: 'Credit Card' },
+    { value: 'cryptoCurrency', label: 'Crypto Currency' },
   ]
 
   const statusOptions = [
     { value: '', label: 'Select Status', number: 0 },
-    { value: 'pending', label: 'Pending', number: 1 },
-    { value: 'active', label: 'Active', number: 2 },
-    { value: 'inactive', label: 'Inactive', number: 3 },
+    { value: 'new', label: 'New', number: 1 },
+    { value: 'approved', label: 'Approved', number: 2 },
+    { value: 'declined', label: 'Declined', number: 3 },
   ]
 
   // ** Function in get data on page change
@@ -266,7 +212,7 @@ const UsersList = () => {
         q: searchTerm,
         perPage: rowsPerPage,
         page: page.selected + 1,
-        role: currentRole.value,
+        role: currentType.value,
         status: currentStatus.value,
         currentPlan: currentPlan.value,
       })
@@ -284,7 +230,7 @@ const UsersList = () => {
         q: searchTerm,
         perPage: value,
         page: currentPage,
-        role: currentRole.value,
+        role: currentType.value,
         currentPlan: currentPlan.value,
         status: currentStatus.value,
       })
@@ -302,7 +248,7 @@ const UsersList = () => {
         sortColumn,
         page: currentPage,
         perPage: rowsPerPage,
-        role: currentRole.value,
+        role: currentType.value,
         status: currentStatus.value,
         currentPlan: currentPlan.value,
       })
@@ -337,7 +283,7 @@ const UsersList = () => {
   // ** Table data to render
   const dataToRender = () => {
     const filters = {
-      role: currentRole.value,
+      role: currentType.value,
       currentPlan: currentPlan.value,
       status: currentStatus.value,
       q: searchTerm,
@@ -366,7 +312,7 @@ const UsersList = () => {
         q: searchTerm,
         page: currentPage,
         perPage: rowsPerPage,
-        role: currentRole.value,
+        role: currentType.value,
         status: currentStatus.value,
         currentPlan: currentPlan.value,
       })
@@ -381,59 +327,7 @@ const UsersList = () => {
         </CardHeader>
         <CardBody>
           <Row>
-            <Col md='4'>
-              <Label for='role-select'>Role</Label>
-              <Select
-                isClearable={false}
-                value={currentRole}
-                options={roleOptions}
-                className='react-select'
-                classNamePrefix='select'
-                theme={selectThemeColors}
-                onChange={(data) => {
-                  setCurrentRole(data)
-                  dispatch(
-                    getData({
-                      sort,
-                      sortColumn,
-                      q: searchTerm,
-                      role: data.value,
-                      page: currentPage,
-                      perPage: rowsPerPage,
-                      status: currentStatus.value,
-                      currentPlan: currentPlan.value,
-                    })
-                  )
-                }}
-              />
-            </Col>
-            <Col className='my-md-0 my-1' md='4'>
-              <Label for='plan-select'>Plan</Label>
-              <Select
-                theme={selectThemeColors}
-                isClearable={false}
-                className='react-select'
-                classNamePrefix='select'
-                options={planOptions}
-                value={currentPlan}
-                onChange={(data) => {
-                  setCurrentPlan(data)
-                  dispatch(
-                    getData({
-                      sort,
-                      sortColumn,
-                      q: searchTerm,
-                      page: currentPage,
-                      perPage: rowsPerPage,
-                      role: currentRole.value,
-                      currentPlan: data.value,
-                      status: currentStatus.value,
-                    })
-                  )
-                }}
-              />
-            </Col>
-            <Col md='4'>
+            <Col md='6'>
               <Label for='status-select'>Status</Label>
               <Select
                 theme={selectThemeColors}
@@ -452,7 +346,33 @@ const UsersList = () => {
                       page: currentPage,
                       status: data.value,
                       perPage: rowsPerPage,
-                      role: currentRole.value,
+                      role: currentType.value,
+                      currentPlan: currentPlan.value,
+                    })
+                  )
+                }}
+              />
+            </Col>
+            <Col md='6'>
+              <Label for='verification-select'>Type</Label>
+              <Select
+                isClearable={false}
+                value={currentType}
+                options={typeOptions}
+                className='react-select'
+                classNamePrefix='select'
+                theme={selectThemeColors}
+                onChange={(data) => {
+                  setCurrentType(data)
+                  dispatch(
+                    getData({
+                      sort,
+                      sortColumn,
+                      q: searchTerm,
+                      role: data.value,
+                      page: currentPage,
+                      perPage: rowsPerPage,
+                      status: currentStatus.value,
                       currentPlan: currentPlan.value,
                     })
                   )

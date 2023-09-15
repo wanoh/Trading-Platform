@@ -26,7 +26,7 @@ const rootReducer = {
   calendar,
   ecommerce,
   dataTables,
-  permissions
+  permissions,
 }
 
 export default rootReducer

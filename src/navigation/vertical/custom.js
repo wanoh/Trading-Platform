@@ -14,10 +14,10 @@ import {
 
 export default [
   {
-    id: 'users',
+    id: 'user',
     title: 'Users',
     icon: <Users size={20} />,
-    navLink: '/users',
+    navLink: '/user',
   },
   {
     id: 'agents',
@@ -28,16 +28,19 @@ export default [
     id: 'deposits',
     title: 'Deposits',
     icon: <Download size={20} />,
+    navLink: '/deposits',
   },
   {
     id: 'withdrawals',
     title: 'Withdrawals',
     icon: <Upload size={20} />,
+    navLink: '/withdrawals',
   },
   {
     id: 'payments',
     title: 'Payments',
     icon: <CreditCard size={20} />,
+    navLink: './Payments',
   },
   {
     id: 'tickets',
@@ -48,6 +51,7 @@ export default [
     id: 'businesspProfile',
     title: 'Business Profile',
     icon: <ShoppingBag size={20} />,
+    navLink: './business-profile',
   },
   {
     id: 'settings',

@@ -9,33 +9,39 @@ export const getAllData = createAsyncThunk('appUsers/getAllData', async () => {
   return response.data
 })
 
-export const getData = createAsyncThunk('appUsers/getData', async params => {
+export const getData = createAsyncThunk('appUsers/getData', async (params) => {
   const response = await axios.get('/api/users/list/data', params)
   return {
     params,
     data: response.data.users,
-    totalPages: response.data.total
+    totalPages: response.data.total,
   }
 })
 
-export const getUser = createAsyncThunk('appUsers/getUser', async id => {
+export const getUser = createAsyncThunk('appUsers/getUser', async (id) => {
   const response = await axios.get('/api/users/user', { id })
   return response.data.user
 })
 
-export const addUser = createAsyncThunk('appUsers/addUser', async (user, { dispatch, getState }) => {
-  await axios.post('/apps/users/add-user', user)
-  await dispatch(getData(getState().users.params))
-  await dispatch(getAllData())
-  return user
-})
+export const addUser = createAsyncThunk(
+  'appUsers/addUser',
+  async (user, { dispatch, getState }) => {
+    await axios.post('/apps/users/add-user', user)
+    await dispatch(getData(getState().users.params))
+    await dispatch(getAllData())
+    return user
+  }
+)
 
-export const deleteUser = createAsyncThunk('appUsers/deleteUser', async (id, { dispatch, getState }) => {
-  await axios.delete('/apps/users/delete', { id })
-  await dispatch(getData(getState().users.params))
-  await dispatch(getAllData())
-  return id
-})
+export const deleteUser = createAsyncThunk(
+  'appUsers/deleteUser',
+  async (id, { dispatch, getState }) => {
+    await axios.delete('/apps/users/delete', { id })
+    await dispatch(getData(getState().users.params))
+    await dispatch(getAllData())
+    return id
+  }
+)
 
 export const appUsersSlice = createSlice({
   name: 'appUsers',
@@ -44,10 +50,21 @@ export const appUsersSlice = createSlice({
     total: 1,
     params: {},
     allData: [],
-    selectedUser: null
+    selectedUser: null,
+    isEditSliderOpen: false,
+    selectedEditRow: null,
   },
-  reducers: {},
-  extraReducers: builder => {
+  reducers: {
+    openEditSlider: (state, action) => {
+      state.isEditSliderOpen = true
+      state.selectedEditRow = action.payload
+    },
+    closeEditSlider: (state) => {
+      state.isEditSliderOpen = false
+      state.selectedEditRow = null
+    },
+  },
+  extraReducers: (builder) => {
     builder
       .addCase(getAllData.fulfilled, (state, action) => {
         state.allData = action.payload
@@ -60,7 +77,7 @@ export const appUsersSlice = createSlice({
       .addCase(getUser.fulfilled, (state, action) => {
         state.selectedUser = action.payload
       })
-  }
+  },
 })
 
 export default appUsersSlice.reducer
