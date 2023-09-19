@@ -2,7 +2,7 @@
 import { useState, Fragment } from 'react'
 
 // ** Reactstrap Imports
-import { Card, CardBody, Badge } from 'reactstrap'
+import { Card, CardBody, Badge, Row, Col, Alert } from 'reactstrap'
 
 // ** Icons Imports
 import { LuActivitySquare } from 'react-icons/lu'
@@ -14,37 +14,76 @@ const LeadActivityInfoCard = ({
   callStatus,
   leadStatus,
   leadClosingStatus,
-  status,
+  date,
+  time,
 }) => {
   return (
     <>
       <Card>
-        <CardBody className='d-flex align-items-center justify-content-center flex-column'>
-          <div className='d-flex flex-column align-items-center justify-content-center mb-2'>
-            <div
-              className='rounded-circle bg-secondary d-flex align-items-center justify-content-center'
-              style={{ width: '100px', height: '100px' }}
-            >
-              <LuActivitySquare size={46} />
-            </div>
-            <h6 className='text-center mt-2 h4 '>Lead Activity</h6>
-          </div>
+        <CardBody className='d-flex align-items-center justify-content-center'>
           <div className='w-100'>
-            <h6 className='border-top border-bottom pt-1 pb-1'>
-              Lead Activity Details
-            </h6>
-            <p>
-              <strong>Last Call Status:</strong>{' '}
-              {callStatus || 'Answer on first ring'}
-            </p>
-            <p>
-              <strong>Lead Status:</strong>{' '}
-              {leadStatus || 'Need More information'}{' '}
-            </p>
-            <p>
-              <strong>Lead Closing Status:</strong>{' '}
-              {leadClosingStatus || 'FTD X2 - Retention X2'}{' '}
-            </p>
+            <div className='border-bottom pt-1 d-flex justify-content-between'>
+              <h6>Lead Activity Details </h6>
+              {date || '18/09/2023'} - {time || '10:03:30 am'}{' '}
+            </div>
+            <div className='pt-2 d-flex justify-content-center flex-column'>
+              <dl>
+                <Row>
+                  <Col sm='6'>
+                    <dt>
+                      <strong>Last Call Status</strong>
+                    </dt>
+                  </Col>
+                  <Col sm='6'>
+                    <dd>
+                      <Badge color='success'>
+                        {callStatus || 'Answer on first ring'}
+                      </Badge>
+                    </dd>
+                  </Col>
+                </Row>
+              </dl>
+              <dl>
+                <Row>
+                  <Col sm='6'>
+                    <dt>
+                      <strong>Lead Status </strong>
+                    </dt>
+                  </Col>
+                  <Col sm='6'>
+                    <dd>
+                      <Badge color='secondary'>
+                        {leadStatus || 'Need More information'}
+                      </Badge>
+                    </dd>
+                  </Col>
+                </Row>
+              </dl>
+              <dl>
+                <Row>
+                  <Col sm='6'>
+                    <dt>
+                      <strong>Lead Closing Status</strong>
+                    </dt>
+                  </Col>
+                  <Col sm='6'>
+                    <dd>
+                      <Badge color='secondary'>
+                        {leadClosingStatus || 'FTD X2 - Retention X2'}
+                      </Badge>
+                    </dd>
+                  </Col>
+                </Row>
+              </dl>
+              <Alert color='success'>
+                <div className='p-1'>
+                  <h6 className='text-success'>Notable Details</h6>
+                  <small>
+                    List of notable details after conversation with client
+                  </small>
+                </div>
+              </Alert>
+            </div>
           </div>
         </CardBody>
       </Card>

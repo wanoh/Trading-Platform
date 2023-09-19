@@ -20,7 +20,7 @@ import {
 // ** Third Party Components
 import Swal from 'sweetalert2'
 import Select from 'react-select'
-import { Check, Briefcase, X } from 'react-feather'
+import { Check, Briefcase, X, Users } from 'react-feather'
 import { useForm, Controller } from 'react-hook-form'
 import withReactContent from 'sweetalert2-react-content'
 
@@ -46,15 +46,10 @@ const statusColors = {
   Unverified: 'light-danger',
 }
 
-const agentsOptions = [
-  { value: 'Admin', label: 'Admin' },
-  { value: 'Martin Luther King Jnr', label: 'Martin Luther King Jnr' },
-  { value: 'Logan Paul', label: 'Logan Paul' },
-  { value: 'Robert Kiyosaki', label: 'Robert Kiyosaki' },
-  { value: 'Kwame Nkrumah', label: 'Kwame Nkrumah' },
-  { value: 'Oprah Winfre', label: 'Oprah Winfre' },
-  { value: 'Mark Zuckerberg', label: 'Mark Zuckerberg' },
-  { value: 'Elon Musk', label: 'Elon Musk' },
+const statusOptions = [
+  { value: 'active', label: 'Active' },
+  { value: 'inactive', label: 'Inactive' },
+  { value: 'suspended', label: 'Suspended' },
 ]
 
 const countryOptions = [
@@ -67,7 +62,7 @@ const countryOptions = [
 
 const MySwal = withReactContent(Swal)
 
-const UserInfoCard = ({ selectedUser }) => {
+const AgentInfoCard = ({ selectedUser }) => {
   // ** State
   const [show, setShow] = useState(false)
 
@@ -156,25 +151,22 @@ const UserInfoCard = ({ selectedUser }) => {
               <div className='ms-75' style={{ fontSize: '10px' }}>
                 <p className='mb-0 fw-bold fs-6 text-nowrap'>Last LogIn</p>
                 <p className='lh-base'>
-                  Sept 07, 2023 <br />
-                  22:57:05 am
+                  Oct 09, 2023 <br />
+                  12:57:05 pm
                 </p>
               </div>
             </div>
             <div className='d-flex align-items-start'>
               <Badge color='light-primary' className='rounded p-75'>
-                <Briefcase className='font-medium-2' />
+                <Users className='font-medium-2' />
               </Badge>
               <div className='ms-75' style={{ fontSize: '10px' }}>
-                <p className='mb-0 fw-bold fs-6 text-nowrap'>Assigned Agent</p>
-                <p className='lh-base'>
-                  Agent 007 <br />
-                  johndoe@gmail.com
-                </p>
+                <p className='mb-0 fw-bold fs-6 text-nowrap'>Assigned Users</p>
+                <p className='lh-base'>121</p>
               </div>
             </div>
           </div>
-          <h4 className='fw-bolder border-bottom pb-50 mb-1'>User Details</h4>
+          <h4 className='fw-bolder border-bottom pb-50 mb-1'>Agent Details</h4>
           <div className='info-container'>
             {selectedUser !== null ? (
               <ul className='list-unstyled'>
@@ -200,27 +192,9 @@ const UserInfoCard = ({ selectedUser }) => {
                   </Badge>
                 </li>
                 <li className='mb-75'>
-                  <span className='fw-bolder me-25'>Email Status:</span>
-                  <Badge
-                    className='text-capitalize'
-                    color={statusColors[selectedUser.verification]}
-                  >
-                    {selectedUser.verification}
-                  </Badge>
-                </li>
-                <li className='mb-75'>
                   <span className='fw-bolder me-25'>Date Created:</span>
                   <span className='text-capitalize'>
                     {selectedUser.start_date}
-                  </span>
-                </li>
-                <li className='mb-75'>
-                  <span className='fw-bolder me-25'>Tax ID:</span>
-                  <span>
-                    Tax-
-                    {selectedUser.contact.substr(
-                      selectedUser.contact.length - 4
-                    )}
                   </span>
                 </li>
                 <li className='mb-75'>
@@ -366,20 +340,6 @@ const UserInfoCard = ({ selectedUser }) => {
                   defaultValue={countryOptions[0]}
                 />
               </Col>
-              <Col xs={12}>
-                <Label className='form-label' for='agentOptions'>
-                  Assign Agent
-                </Label>
-                <Select
-                  id='agentOptions'
-                  isClearable={false}
-                  className='react-select'
-                  classNamePrefix='select'
-                  options={agentsOptions}
-                  theme={selectThemeColors}
-                  defaultValue={agentsOptions[0]}
-                />
-              </Col>
               <Col xs={12} className='text-center mt-2 pt-50'>
                 <Button type='submit' className='w-100' color='primary'>
                   Save
@@ -393,4 +353,4 @@ const UserInfoCard = ({ selectedUser }) => {
   )
 }
 
-export default UserInfoCard
+export default AgentInfoCard

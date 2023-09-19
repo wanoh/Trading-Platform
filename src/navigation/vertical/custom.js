@@ -23,6 +23,7 @@ export default [
     id: 'agents',
     title: 'Agents',
     icon: <User size={20} />,
+    navLink: '/agent',
   },
   {
     id: 'deposits',
@@ -40,23 +41,25 @@ export default [
     id: 'payments',
     title: 'Payments',
     icon: <CreditCard size={20} />,
-    navLink: './Payments',
+    navLink: '/Payments',
   },
   {
     id: 'tickets',
     title: 'Tickets',
     icon: <File size={20} />,
+    navLink: '/tickets',
   },
   {
     id: 'businesspProfile',
     title: 'Business Profile',
     icon: <ShoppingBag size={20} />,
-    navLink: './business-profile',
+    navLink: '/business-profile',
   },
   {
     id: 'settings',
     title: 'Settings',
     icon: <Settings size={20} />,
+    navLink: '/settings',
   },
   {
     id: 'logout',

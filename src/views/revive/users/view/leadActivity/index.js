@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Row, Col } from 'reactstrap'
+import { Row, Col, Table } from 'reactstrap'
 
 // ** custom components
 import LeadActivitySettings from './LeadActivitySettings'
@@ -10,14 +10,16 @@ const LeadActivitySettingsPage = () => {
   return (
     <div>
       <div className=''>
-        <Row>
-          <Col xl='8' lg='7' xs='12'>
-            <LeadActivitySettings />
-          </Col>
-          <Col xl='4' lg='5' xs='12'>
-            <LeadActivityInfoCard />
-          </Col>
-        </Row>
+        <LeadActivitySettings />
+        <div style={{ height: '600px', overflowY: 'scroll' }}>
+          <LeadActivityInfoCard />
+          <LeadActivityInfoCard />
+          <LeadActivityInfoCard />
+          <LeadActivityInfoCard />
+          <LeadActivityInfoCard />
+          <LeadActivityInfoCard />
+          <LeadActivityInfoCard />
+        </div>
       </div>
     </div>
   )

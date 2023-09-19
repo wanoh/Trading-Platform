@@ -20,6 +20,9 @@ import DepositRoute from './Deposits'
 import WithdrawalRoute from './Withdrawal'
 import PaymentRoute from './Payment'
 import BusinessProfile from './BusinessProfile'
+import Agents from './Agents'
+import Settings from './Settings'
+import Tickets from './Tickets'
 
 // ** Layouts
 import BlankLayout from '@layouts/BlankLayout'
@@ -55,10 +58,13 @@ const Routes = [
   ...DashboardRoutes,
   ...DashboardRoute,
   ...UsersRoute,
+  ...Agents,
   ...DepositRoute,
   ...WithdrawalRoute,
   ...PaymentRoute,
   ...BusinessProfile,
+  ...Settings,
+  ...Tickets,
   ...AppRoutes,
   ...PagesRoutes,
   ...UiElementRoutes,
