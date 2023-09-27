@@ -7,6 +7,7 @@ export const data = [
     id: 1,
     btnText: 'Front',
     img: GhanaIdFront,
+    imgName: 'Ghana Card',
   },
   {
     id: 2,

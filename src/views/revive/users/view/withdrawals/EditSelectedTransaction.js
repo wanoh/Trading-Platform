@@ -1,5 +1,5 @@
 // ** React Import
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 // ** Custom Components
 import Sidebar from '@components/sidebar'
@@ -49,7 +49,28 @@ const checkIsValid = (data) => {
   )
 }
 
-const SidebarWithdrawal = ({ open, toggleSidebar }) => {
+const EditSelectedTransaction = ({ open, toggleSidebar, selectedRowData }) => {
+  // ** Default Values from the selected row
+  useEffect(() => {
+    if (selectedRowData) {
+      setValue('amount', selectedRowData.depositAmount || '')
+      setValue(
+        'type',
+        selectedRowData.type
+          ? { label: selectedRowData.type, value: selectedRowData.type }
+          : { label: 'Select...', value: '' }
+      )
+      setValue(
+        'status',
+        selectedRowData.transactionStatus
+          ? {
+              label: selectedRowData.transactionStatus,
+              value: selectedRowData.transactionStatus,
+            }
+          : { label: 'Select...', value: '' }
+      )
+    }
+  }, [selectedRowData])
   // ** States
   const [data, setData] = useState(null)
   const [plan, setPlan] = useState('basic')
@@ -115,7 +136,7 @@ const SidebarWithdrawal = ({ open, toggleSidebar }) => {
     <Sidebar
       size='lg'
       open={open}
-      title='Add New Transaction'
+      title='Edit Transaction'
       headerClassName='mb-1'
       contentClassName='pt-0'
       toggleSidebar={toggleSidebar}
@@ -123,11 +144,11 @@ const SidebarWithdrawal = ({ open, toggleSidebar }) => {
     >
       <Form onSubmit={handleSubmit(onSubmit)}>
         <div className='mb-1'>
-          <Label className='form-label' for='market'>
+          <Label className='form-label' for='type'>
             Type <span className='text-danger'>*</span>
           </Label>
           <Controller
-            name='market'
+            name='type'
             control={control}
             render={({ field }) => (
               <Select
@@ -193,4 +214,4 @@ const SidebarWithdrawal = ({ open, toggleSidebar }) => {
   )
 }
 
-export default SidebarWithdrawal
+export default EditSelectedTransaction

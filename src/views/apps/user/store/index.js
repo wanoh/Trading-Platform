@@ -55,13 +55,8 @@ export const appUsersSlice = createSlice({
     selectedEditRow: null,
   },
   reducers: {
-    openEditSlider: (state, action) => {
-      state.isEditSliderOpen = true
-      state.selectedEditRow = action.payload
-    },
-    closeEditSlider: (state) => {
-      state.isEditSliderOpen = false
-      state.selectedEditRow = null
+    toggleEditSlider: (state) => {
+      state.isEditSliderOpen = !state.isEditSliderOpen
     },
   },
   extraReducers: (builder) => {
@@ -81,3 +76,4 @@ export const appUsersSlice = createSlice({
 })
 
 export default appUsersSlice.reducer
+export const { toggleEditSlider } = appUsersSlice.actions

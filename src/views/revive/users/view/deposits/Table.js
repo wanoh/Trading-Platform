@@ -7,6 +7,9 @@ import Sidebar from './Sidebar'
 // ** Table Columns
 import { columns } from './columns'
 
+// ** Components
+import EditTransactionSidebar from './EditSelectedTransaction'
+
 // ** Store & Actions
 import { getAllData, getData } from '../../../../apps/user/store'
 import { useDispatch, useSelector } from 'react-redux'
@@ -21,17 +24,7 @@ import { ChevronDown } from 'react-feather'
 import { selectThemeColors } from '@utils'
 
 // ** Reactstrap Imports
-import {
-  Row,
-  Col,
-  Card,
-  Input,
-  Label,
-  Button,
-  CardBody,
-  CardTitle,
-  CardHeader,
-} from 'reactstrap'
+import { Row, Col, Card, Input, Button } from 'reactstrap'
 
 // ** Styles
 import '@styles/react/libs/react-select/_react-select.scss'
@@ -49,7 +42,7 @@ const CustomHeader = ({
     <div className='invoice-list-table-header w-100 me-1 ms-50 mt-2 mb-75'>
       <Row>
         <Col xl='6' className='p-0 mb-3'>
-          <h4>Deposits</h4>
+          <h4>Withdrawals</h4>
         </Col>
         <Col
           xl='6'
@@ -107,10 +100,24 @@ const CustomHeader = ({
   )
 }
 
-const UsersList = () => {
+const WithdrawalTransactions = () => {
   // ** Store Vars
   const dispatch = useDispatch()
   const store = useSelector((state) => state.users)
+
+  const toggleEditSidebar = () => setEditSliderState(!editSliderState)
+
+  // ** Function to handle edit button click
+  const handleEditClick = (row) => {
+    setSelectedRowData(row)
+    toggleEditSidebar()
+  }
+
+  // ** Edit Slider State
+  const [editSliderState, setEditSliderState] = useState(false)
+
+  // ** State for selected row data
+  const [selectedRowData, setSelectedRowData] = useState(null)
 
   // ** States
   const [sort, setSort] = useState('desc')
@@ -280,7 +287,7 @@ const UsersList = () => {
             pagination
             responsive
             paginationServer
-            columns={columns}
+            columns={columns(handleEditClick)}
             onSort={handleSort}
             sortIcon={<ChevronDown />}
             className='react-dataTable'
@@ -300,9 +307,14 @@ const UsersList = () => {
         </div>
       </Card>
 
+      <EditTransactionSidebar
+        open={editSliderState}
+        toggleSidebar={toggleEditSidebar}
+        selectedRowData={selectedRowData}
+      />
       <Sidebar open={sidebarOpen} toggleSidebar={toggleSidebar} />
     </Fragment>
   )
 }
 
-export default UsersList
+export default WithdrawalTransactions

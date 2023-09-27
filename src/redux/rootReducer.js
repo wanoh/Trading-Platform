@@ -12,6 +12,7 @@ import calendar from '@src/views/apps/calendar/store'
 import ecommerce from '@src/views/apps/ecommerce/store'
 import dataTables from '@src/views/tables/data-tables/store'
 import permissions from '@src/views/apps/roles-permissions/store'
+import reviveUsers from '../views/revive/users/store'
 
 const rootReducer = {
   auth,
@@ -27,6 +28,7 @@ const rootReducer = {
   ecommerce,
   dataTables,
   permissions,
+  reviveUsers,
 }
 
 export default rootReducer

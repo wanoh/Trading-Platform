@@ -7,7 +7,6 @@ import {
   CreditCard,
   File,
   ShoppingBag,
-  Settings,
   LogOut,
   Home,
 } from 'react-feather'
@@ -54,12 +53,6 @@ export default [
     title: 'Business Profile',
     icon: <ShoppingBag size={20} />,
     navLink: '/business-profile',
-  },
-  {
-    id: 'settings',
-    title: 'Settings',
-    icon: <Settings size={20} />,
-    navLink: '/settings',
   },
   {
     id: 'logout',

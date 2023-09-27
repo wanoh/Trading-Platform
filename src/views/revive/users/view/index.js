@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 
 // ** Store & Actions
-import { getUser } from '../../../apps/user/store'
+import { getUser } from '../store'
 import { useSelector, useDispatch } from 'react-redux'
 
 // ** Reactstrap Imports
@@ -18,13 +18,13 @@ import '@styles/react/apps/app-users.scss'
 
 const UserView = () => {
   // ** Store Vars
-  const store = useSelector((state) => state.users)
+  const store = useSelector((state) => state.reviveUsers)
   const dispatch = useDispatch()
 
   // ** Hooks
   const { id } = useParams()
 
-  // ** Get suer on mount
+  // ** Get user on mount
   useEffect(() => {
     dispatch(getUser(parseInt(id)))
   }, [dispatch])

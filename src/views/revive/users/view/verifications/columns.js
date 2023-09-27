@@ -4,13 +4,17 @@ import { Eye, EyeOff } from 'react-feather'
 // ** Reactstrap Imports
 import { Badge, Button } from 'reactstrap'
 
+// ** Store and Actions
+import { store } from '@store/store'
+import { toggleVerificationSlider } from '../../store'
+
 const statusObj = {
   Completed: 'light-success',
   Pending: 'light-warning',
   'No Uploads': 'light-danger',
 }
 
-export const columns = [
+export const columns = (previewDetails) => [
   {
     name: 'Name',
     minWidth: '124px',
@@ -53,8 +57,10 @@ export const columns = [
             color='dark'
             outline
             style={{ padding: '12px 16px', border: '1px solid white' }}
+            onClick={() => previewDetails(row)}
           >
-            View <Eye size={16} className='ms-1 ' />
+            View
+            <Eye size={16} className='ms-1 ' />
           </Button.Ripple>
         )}
       </div>

@@ -1,5 +1,5 @@
 // ** React Import
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 // ** Custom Components
 import Sidebar from '@components/sidebar'
@@ -13,10 +13,10 @@ import classnames from 'classnames'
 import { useForm, Controller } from 'react-hook-form'
 
 // ** Reactstrap Imports
-import { Button, Label, FormText, Form, Input } from 'reactstrap'
+import { Button, Label, Form, Input } from 'reactstrap'
 
 // ** Store & Actions
-import { addUser } from '../../../../apps/user/store'
+import { addUser } from '../../store'
 import { useDispatch } from 'react-redux'
 
 const defaultValues = {
@@ -49,7 +49,30 @@ const checkIsValid = (data) => {
   )
 }
 
-const SidebarNewUsers = ({ open, toggleSidebar }) => {
+const SidebarEditTransaction = ({ open, toggleSidebar, selectedRowData }) => {
+  // ** Default Values from the selected row
+  useEffect(() => {
+    if (selectedRowData) {
+      setValue('company', selectedRowData.company || '')
+      setValue('reason', selectedRowData.reason || '')
+      setValue('amount', selectedRowData.depositAmount || '')
+      setValue(
+        'market',
+        selectedRowData.market
+          ? { label: selectedRowData.market, value: selectedRowData.market }
+          : { label: 'Select...', value: '' }
+      )
+      setValue(
+        'status',
+        selectedRowData.progressStatus
+          ? {
+              label: selectedRowData.progressStatus,
+              value: selectedRowData.progressStatus,
+            }
+          : { label: 'Select...', value: '' }
+      )
+    }
+  }, [selectedRowData])
   // ** States
   const [data, setData] = useState(null)
 
@@ -100,12 +123,12 @@ const SidebarNewUsers = ({ open, toggleSidebar }) => {
       setValue(key, '')
     }
   }
-
+  console.log('selectedRowData', selectedRowData)
   return (
     <Sidebar
       size='lg'
       open={open}
-      title='New Transaction'
+      title='Edit Transaction'
       headerClassName='mb-1'
       contentClassName='pt-0'
       toggleSidebar={toggleSidebar}
@@ -120,12 +143,7 @@ const SidebarNewUsers = ({ open, toggleSidebar }) => {
             name='company'
             control={control}
             render={({ field }) => (
-              <Input
-                id='company'
-                placeholder='eg. Kaymbo PVT LTD'
-                invalid={errors.company && true}
-                {...field}
-              />
+              <Input id='company' invalid={errors.company && true} {...field} />
             )}
           />
         </div>
@@ -138,8 +156,8 @@ const SidebarNewUsers = ({ open, toggleSidebar }) => {
             control={control}
             render={({ field }) => (
               <Input
+                type='text'
                 id='reason'
-                placeholder='eg. Uncleared Trade Orders'
                 invalid={errors.reason && true}
                 {...field}
               />
@@ -155,9 +173,8 @@ const SidebarNewUsers = ({ open, toggleSidebar }) => {
             control={control}
             render={({ field }) => (
               <Input
-                type='amount'
+                type='text'
                 id='amount'
-                placeholder='eg. 10,000.00'
                 invalid={errors.amount && true}
                 {...field}
               />
@@ -217,4 +234,4 @@ const SidebarNewUsers = ({ open, toggleSidebar }) => {
   )
 }
 
-export default SidebarNewUsers
+export default SidebarEditTransaction

@@ -1,14 +1,18 @@
 // ** React Imports
 import { Fragment, useState, useEffect } from 'react'
 
-// ** Invoice List Sidebar
+// ** Sidebar
 import Sidebar from './Sidebar'
+import PreviewBar from './PreviewVertical'
+
+// ** Preview Data
+import { data } from './data'
 
 // ** Table Columns
 import { columns } from './columns'
 
 // ** Store & Actions
-import { getAllData, getData } from '../../../../apps/user/store'
+import { getAllData, getData } from '../../store'
 import { useDispatch, useSelector } from 'react-redux'
 
 // ** Third Party Components
@@ -57,8 +61,19 @@ const customStyles = {
 const UsersList = () => {
   // ** Store Vars
   const dispatch = useDispatch()
-  const store = useSelector((state) => state.users)
+  const store = useSelector((state) => state.reviveUsers)
+  const togglePreviewBar = () => setPreviewSliderState(!previewSliderState)
 
+  // ** Handle Edit Click Func
+  const previewDetails = (row) => {
+    setSelectedRowData(row)
+    togglePreviewBar()
+  }
+
+  // ** State to store row data
+  const [selectedRowData, setSelectedRowData] = useState(null)
+
+  const [previewSliderState, setPreviewSliderState] = useState(false)
   // ** States
   const [sort, setSort] = useState('desc')
   const [searchTerm, setSearchTerm] = useState('')
@@ -200,7 +215,7 @@ const UsersList = () => {
             responsive
             paginationServer
             customStyles={customStyles}
-            columns={columns}
+            columns={columns(previewDetails)}
             onSort={handleSort}
             sortIcon={<ChevronDown />}
             className='react-dataTable'
@@ -218,6 +233,14 @@ const UsersList = () => {
         </div>
       </Card>
 
+      <PreviewBar
+        open={previewSliderState}
+        toggleSidebar={togglePreviewBar}
+        data={data}
+        title={selectedRowData?.proof}
+        docType={data[0].imgName}
+        selectedRowData={selectedRowData}
+      />
       <Sidebar open={sidebarOpen} toggleSidebar={toggleSidebar} />
     </Fragment>
   )

@@ -17,7 +17,6 @@ const Timeline = (props) => {
     >
       {data.map((item, i) => {
         const ItemTag = item.tag ? item.tag : 'li'
-        console.log('Timeline Data', data)
         return (
           <ItemTag
             key={i}

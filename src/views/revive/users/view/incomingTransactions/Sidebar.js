@@ -16,7 +16,7 @@ import { useForm, Controller } from 'react-hook-form'
 import { Button, Label, FormText, Form, Input } from 'reactstrap'
 
 // ** Store & Actions
-import { addUser } from '../../../../apps/user/store'
+import { addUser } from '../../store'
 import { useDispatch } from 'react-redux'
 
 const defaultValues = {
@@ -49,7 +49,7 @@ const checkIsValid = (data) => {
   )
 }
 
-const SidebarNewUsers = ({ open, toggleSidebar }) => {
+const SidebarAddNewTransaction = ({ open, toggleSidebar }) => {
   // ** States
   const [data, setData] = useState(null)
 
@@ -105,7 +105,7 @@ const SidebarNewUsers = ({ open, toggleSidebar }) => {
     <Sidebar
       size='lg'
       open={open}
-      title='New Transaction'
+      title='Add New Transaction'
       headerClassName='mb-1'
       contentClassName='pt-0'
       toggleSidebar={toggleSidebar}
@@ -217,4 +217,4 @@ const SidebarNewUsers = ({ open, toggleSidebar }) => {
   )
 }
 
-export default SidebarNewUsers
+export default SidebarAddNewTransaction

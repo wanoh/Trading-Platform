@@ -3,16 +3,16 @@ import { Fragment, useState, useEffect } from 'react'
 
 // ** Invoice List Sidebar
 import Sidebar from './Sidebar'
+import EditTransactionSidebar from './SidebarEditTransaction'
 
 // ** Table Columns
 import { columns } from './columns'
 
 // ** Store & Actions
-import { getAllData, getData } from '../../../../apps/user/store'
+import { getAllData, getData } from '../../store'
 import { useDispatch, useSelector } from 'react-redux'
 
 // ** Third Party Components
-import Select from 'react-select'
 import ReactPaginate from 'react-paginate'
 import DataTable from 'react-data-table-component'
 import { ChevronDown } from 'react-feather'
@@ -107,12 +107,24 @@ const CustomHeader = ({
   )
 }
 
-const UserDetails = () => {
+const IncomingTransactionsTable = () => {
   // ** Store Vars
   const dispatch = useDispatch()
-  const store = useSelector((state) => state.users)
+  const store = useSelector((state) => state.reviveUsers)
+  const toggleEditSidebar = () => setEditSliderState(!editSliderState)
 
-  // ** States
+  // ** Function to handle edit button click
+  const handleEditClick = (row) => {
+    setSelectedRowData(row)
+    toggleEditSidebar()
+  }
+
+  // ** Edit Slider State
+  const [editSliderState, setEditSliderState] = useState(false)
+
+  // ** State variable to store selected row data
+  const [selectedRowData, setSelectedRowData] = useState(null)
+
   const [sort, setSort] = useState('desc')
   const [searchTerm, setSearchTerm] = useState('')
   const [currentPage, setCurrentPage] = useState(1)
@@ -280,7 +292,7 @@ const UserDetails = () => {
             pagination
             responsive
             paginationServer
-            columns={columns}
+            columns={columns(handleEditClick)}
             onSort={handleSort}
             sortIcon={<ChevronDown />}
             className='react-dataTable'
@@ -300,9 +312,14 @@ const UserDetails = () => {
         </div>
       </Card>
 
+      <EditTransactionSidebar
+        open={editSliderState}
+        toggleSidebar={toggleEditSidebar}
+        selectedRowData={selectedRowData}
+      />
       <Sidebar open={sidebarOpen} toggleSidebar={toggleSidebar} />
     </Fragment>
   )
 }
 
-export default UserDetails
+export default IncomingTransactionsTable

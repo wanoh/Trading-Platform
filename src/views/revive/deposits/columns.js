@@ -41,7 +41,7 @@ const statusObj = {
   'Credit Card': 'light-warning',
 }
 
-export const columns = [
+export const columns = (handleEditClick) => [
   {
     name: 'User',
     sortable: true,
@@ -116,13 +116,11 @@ export const columns = [
     cell: (row) => (
       <div className='d-flex gap-1'>
         <div>
-          <Link
-            to={`/user/view/${row.id}`}
-            className='user_name text-truncate text-body'
-            onClick={() => store.dispatch(getUser(row.id))}
-          >
-            <Edit size={14} className='me-50' />
-          </Link>
+          <Edit
+            size={14}
+            className='me-50'
+            onClick={() => handleEditClick(row)}
+          />
         </div>
         <div
           tag='a'

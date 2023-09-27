@@ -16,7 +16,7 @@ import { useForm, Controller } from 'react-hook-form'
 import { Button, Label, FormText, Form, Input } from 'reactstrap'
 
 // ** Store & Actions
-import { addUser } from '../../store'
+import { addUser } from '../../apps/user/store'
 import { useDispatch } from 'react-redux'
 
 const defaultValues = {
@@ -61,7 +61,7 @@ const checkIsValid = (data) => {
   )
 }
 
-const SidebarNewUsers = ({ open, toggleSidebar }) => {
+const SidebarNewUsers = ({ open, toggleSidebar, selectedRowData }) => {
   // ** States
   const [data, setData] = useState(null)
   const [plan, setPlan] = useState('basic')

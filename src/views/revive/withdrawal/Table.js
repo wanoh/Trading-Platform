@@ -3,12 +3,13 @@ import { Fragment, useState, useEffect } from 'react'
 
 // ** Invoice List Sidebar
 import Sidebar from './Sidebar'
+import EditSidebar from './EditSelectedTransaction'
 
 // ** Table Columns
 import { columns } from './columns'
 
 // ** Store & Actions
-import { getAllData, getData } from '../../apps/user/store'
+import { getAllData, getData, toggleEditSlider } from '../../apps/user/store'
 import { useDispatch, useSelector } from 'react-redux'
 
 // ** Third Party Components
@@ -141,10 +142,22 @@ const CustomHeader = ({
   )
 }
 
-const UsersList = () => {
+const WithdrawalList = () => {
   // ** Store Vars
   const dispatch = useDispatch()
   const store = useSelector((state) => state.users)
+
+  const toggleEditSidebar = () => setEditSliderState(!editSliderState)
+
+  // ** Handle Edit Click Func
+  const handleEditClick = (row) => {
+    setSelectedRowData(row)
+    toggleEditSidebar()
+  }
+
+  // ** State for storing Selected Row Data
+  const [editSliderState, setEditSliderState] = useState(false)
+  const [selectedRowData, setSelectedRowData] = useState(null)
 
   // ** States
   const [sort, setSort] = useState('desc')
@@ -392,7 +405,7 @@ const UsersList = () => {
             pagination
             responsive
             paginationServer
-            columns={columns}
+            columns={columns(handleEditClick)}
             onSort={handleSort}
             sortIcon={<ChevronDown />}
             className='react-dataTable'
@@ -412,9 +425,15 @@ const UsersList = () => {
         </div>
       </Card>
 
+      <EditSidebar
+        open={editSliderState}
+        toggleSidebar={toggleEditSidebar}
+        selectedRowData={selectedRowData}
+      />
+
       <Sidebar open={sidebarOpen} toggleSidebar={toggleSidebar} />
     </Fragment>
   )
 }
 
-export default UsersList
+export default WithdrawalList

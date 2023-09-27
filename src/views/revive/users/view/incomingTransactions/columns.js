@@ -1,12 +1,3 @@
-// ** React Imports
-import { Link } from 'react-router-dom'
-
-// ** Store & Actions
-import { useDispatch } from 'react-redux'
-import openEditSlider from './SidebarEditTransaction'
-import { store } from '@store/store'
-import { getUser, deleteUser } from '../../../../apps/user/store'
-
 // ** Icons Imports
 import { Trash2, Edit } from 'react-feather'
 
@@ -32,7 +23,7 @@ const progressObj = {
   Litigated: 'danger',
 }
 
-export const columns = [
+export const columns = (handleEditClick) => [
   {
     name: 'ID',
     sortable: true,
@@ -121,18 +112,14 @@ export const columns = [
     name: 'Actions',
     minWidth: '100px',
     cell: (row) => {
-      const dispatch = useDispatch()
-
-      const handleEditClick = () => {
-        dispatch(openEditSlider(row))
-      }
-
       return (
         <div className='d-flex gap-1'>
           <div>
-            <Link onClick={handleEditClick}>
-              <Edit size={14} className='me-50' />
-            </Link>
+            <Edit
+              size={14}
+              className='me-50'
+              onClick={() => handleEditClick(row)}
+            />
           </div>
           <div
             tag='a'
@@ -140,7 +127,6 @@ export const columns = [
             className='w-100'
             onClick={(e) => {
               e.preventDefault()
-              // You can add code here to handle other actions if needed.
             }}
           >
             <Trash2 size={14} className='me-50' />

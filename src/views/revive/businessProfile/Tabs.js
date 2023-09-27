@@ -12,6 +12,7 @@ import { TbHomeUp } from 'react-icons/tb'
 import Socials from './Socials'
 import DescriptiveText from './DescriptiveText'
 import SiteDetails from './SiteDetails'
+import Utilities from './Utilities'
 
 const ProfileTabs = ({ active, toggleTab }) => {
   return (
@@ -35,6 +36,12 @@ const ProfileTabs = ({ active, toggleTab }) => {
             <span className='fw-bold'>Descriptive Text</span>
           </NavLink>
         </NavItem>
+        <NavItem>
+          <NavLink active={active === '4'} onClick={() => toggleTab('4')}>
+            <Upload className='font-medium-3 me-50' />
+            <span className='fw-bold'>Utilities</span>
+          </NavLink>
+        </NavItem>
       </Nav>
       <TabContent activeTab={active}>
         <TabPane tabId='1'>
@@ -45,6 +52,9 @@ const ProfileTabs = ({ active, toggleTab }) => {
         </TabPane>
         <TabPane tabId='3'>
           <DescriptiveText />
+        </TabPane>
+        <TabPane tabId='4'>
+          <Utilities />
         </TabPane>
       </TabContent>
     </Fragment>

@@ -5,31 +5,38 @@ import { Monitor, Tablet, ArrowDown, ArrowUp } from 'react-feather'
 // ** Reactstrap Imports
 import { Card, CardHeader, CardTitle, CardBody } from 'reactstrap'
 
-const ChartjsRadarChart = ({ tooltipShadow, successColorShade, warningLightColor, primary }) => {
+const ChartjsRadarChart = ({
+  tooltipShadow,
+  successColorShade,
+  warningLightColor,
+  primary,
+}) => {
   // ** Chart Options
   const options = {
     maintainAspectRatio: false,
     cutout: 60,
     animation: {
       resize: {
-        duration: 500
-      }
+        duration: 500,
+      },
     },
     plugins: {
       legend: { display: false },
       tooltips: {
         callbacks: {
           label(context) {
-            console.log(context)
             let label = context.label || ''
             if (label) {
               label += 'Ronak: '
             }
             if (context.parsed.y !== null) {
-              label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(context.parsed.y)
+              label += new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+              }).format(context.parsed.y)
             }
             return label
-          }
+          },
         },
         // Updated default tooltip UI
         shadowOffsetX: 1,
@@ -38,9 +45,9 @@ const ChartjsRadarChart = ({ tooltipShadow, successColorShade, warningLightColor
         shadowColor: tooltipShadow,
         backgroundColor: '#fff',
         titleFontColor: '#000',
-        bodyFontColor: '#000'
-      }
-    }
+        bodyFontColor: '#000',
+      },
+    },
   }
 
   // ** Chart data
@@ -51,9 +58,9 @@ const ChartjsRadarChart = ({ tooltipShadow, successColorShade, warningLightColor
         data: [10, 10, 80],
         backgroundColor: [successColorShade, warningLightColor, primary],
         borderWidth: 0,
-        pointStyle: 'rectRounded'
-      }
-    ]
+        pointStyle: 'rectRounded',
+      },
+    ],
   }
 
   return (

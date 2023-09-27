@@ -28,7 +28,6 @@ const ChartjsRadarChart = ({
       tooltips: {
         callbacks: {
           label(context) {
-            console.log(context)
             let label = context.label || ''
             if (label) {
               label += 'Ronak: '
@@ -54,7 +53,6 @@ const ChartjsRadarChart = ({
     },
   }
 
-  console.log('NUmmberrrrrr', dataset1.value)
   // ** Chart data
   const data = {
     datasets: [

@@ -21,7 +21,6 @@ import WithdrawalRoute from './Withdrawal'
 import PaymentRoute from './Payment'
 import BusinessProfile from './BusinessProfile'
 import Agents from './Agents'
-import Settings from './Settings'
 import Tickets from './Tickets'
 
 // ** Layouts
@@ -63,7 +62,6 @@ const Routes = [
   ...WithdrawalRoute,
   ...PaymentRoute,
   ...BusinessProfile,
-  ...Settings,
   ...Tickets,
   ...AppRoutes,
   ...PagesRoutes,

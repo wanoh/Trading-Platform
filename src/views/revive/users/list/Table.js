@@ -3,12 +3,13 @@ import { Fragment, useState, useEffect } from 'react'
 
 // ** Invoice List Sidebar
 import Sidebar from './Sidebar'
+import SliderComponent from '../view/incomingTransactions/SidebarEditTransaction'
 
 // ** Table Columns
 import { columns } from './columns'
 
 // ** Store & Actions
-import { getAllData, getData } from '../../../apps/user/store'
+import { getAllData, getData } from '../store'
 import { useDispatch, useSelector } from 'react-redux'
 
 // ** Third Party Components
@@ -187,9 +188,13 @@ const CustomHeader = ({
 }
 
 const UsersList = () => {
+  // ** Table Columns
+  const [isEditSliderOpen, SetIsEditSliderOpen] = useState(false)
+
   // ** Store Vars
   const dispatch = useDispatch()
-  const store = useSelector((state) => state.users)
+  const store = useSelector((state) => state.reviveUsers)
+  // const isEditSliderOpen = useSelector((state) => state.users.isEditSliderOpen)
 
   // ** States
   const [sort, setSort] = useState('desc')
@@ -212,11 +217,10 @@ const UsersList = () => {
     number: 0,
   })
 
-  console.log('currentRole', currentRole)
-  console.log('currentRole', currentRole)
-
   // ** Function to toggle sidebar
   const toggleSidebar = () => setSidebarOpen(!sidebarOpen)
+  // ** Function to toggle sidebar
+  const toggleEditSidebar = () => SetIsEditSliderOpen(!isEditSliderOpen)
 
   // ** Get data on mount
   useEffect(() => {
@@ -489,6 +493,11 @@ const UsersList = () => {
           />
         </div>
       </Card>
+
+      <SliderComponent
+        open={isEditSliderOpen}
+        toggleSidebar={toggleEditSidebar}
+      />
 
       <Sidebar open={sidebarOpen} toggleSidebar={toggleSidebar} />
     </Fragment>

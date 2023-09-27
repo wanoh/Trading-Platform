@@ -6,7 +6,7 @@ import Avatar from '@components/avatar'
 
 // ** Store & Actions
 import { store } from '@store/store'
-import { getUser, deleteUser } from '../../../../apps/user/store'
+import { getUser, deleteUser } from '../../store'
 
 // ** Icons Imports
 import { Trash2, Edit } from 'react-feather'
@@ -26,7 +26,7 @@ const statusObj = {
   'Credit Card': 'light-warning',
 }
 
-export const columns = [
+export const columns = (handleEditClick) => [
   {
     name: 'ID',
     sortable: true,
@@ -89,13 +89,11 @@ export const columns = [
     cell: (row) => (
       <div className='d-flex gap-1'>
         <div>
-          <Link
-            to={`/user/view/${row.id}`}
-            className='user_name text-truncate text-body'
-            onClick={() => store.dispatch(getUser(row.id))}
-          >
-            <Edit size={14} className='me-50' />
-          </Link>
+          <Edit
+            size={14}
+            className='me-50'
+            onClick={() => handleEditClick(row)}
+          />
         </div>
         <div
           tag='a'

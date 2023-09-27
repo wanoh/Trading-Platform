@@ -15,7 +15,7 @@ import {
   ModalBody,
   CardHeader,
   ModalHeader,
-  FormFeedback
+  FormFeedback,
 } from 'reactstrap'
 
 // ** Third Party Components
@@ -34,12 +34,12 @@ const countryOptions = [
   { value: 'usa', label: 'USA' },
   { value: 'france', label: 'France' },
   { value: 'russia', label: 'Russia' },
-  { value: 'canada', label: 'Canada' }
+  { value: 'canada', label: 'Canada' },
 ]
 
 const defaultValues = {
   lastName: '',
-  firstName: ''
+  firstName: '',
 }
 
 const BillingAddress = () => {
@@ -53,19 +53,19 @@ const BillingAddress = () => {
     setError,
     clearErrors,
     handleSubmit,
-    formState: { errors }
+    formState: { errors },
   } = useForm({ defaultValues })
 
-  const onSubmit = data => {
-    if (Object.values(data).every(field => field.length > 0)) {
+  const onSubmit = (data) => {
+    if (Object.values(data).every((field) => field.length > 0)) {
       setShow(false)
       reset()
     } else {
       setError('firstName', {
-        type: 'manual'
+        type: 'manual',
       })
       setError('lastName', {
-        type: 'manual'
+        type: 'manual',
       })
     }
   }
@@ -166,11 +166,20 @@ const BillingAddress = () => {
         toggle={() => setShow(!show)}
         className='modal-dialog-centered modal-lg'
       >
-        <ModalHeader className='bg-transparent' toggle={() => setShow(!show)}></ModalHeader>
+        <ModalHeader
+          className='bg-transparent'
+          toggle={() => setShow(!show)}
+        ></ModalHeader>
         <ModalBody className='pb-5 px-sm-4 mx-50'>
           <h1 className='address-title text-center mb-1'>Add New Address</h1>
-          <p className='address-subtitle text-center mb-2 pb-75'>Add address for billing address</p>
-          <Row tag='form' className='gy-1 gx-2' onSubmit={handleSubmit(onSubmit)}>
+          <p className='address-subtitle text-center mb-2 pb-75'>
+            Add address for billing address
+          </p>
+          <Row
+            tag='form'
+            className='gy-1 gx-2'
+            onSubmit={handleSubmit(onSubmit)}
+          >
             <Col xs={12}>
               <Row className='custom-options-checkable'>
                 <Col md={6} className='mb-md-0 mb-2'>
@@ -182,10 +191,15 @@ const BillingAddress = () => {
                     value='homeAddress'
                     className='custom-option-item-check'
                   />
-                  <label className='custom-option-item px-2 py-1' htmlFor='homeAddress'>
+                  <label
+                    className='custom-option-item px-2 py-1'
+                    htmlFor='homeAddress'
+                  >
                     <span className='d-flex align-items-center mb-50'>
                       <Home className='font-medium-4 me-50' />
-                      <span className='custom-option-item-title h4 fw-bolder mb-0'>Home</span>
+                      <span className='custom-option-item-title h4 fw-bolder mb-0'>
+                        Home
+                      </span>
                     </span>
                     <span className='d-block'>Delivery time (7am – 9pm)</span>
                   </label>
@@ -198,10 +212,15 @@ const BillingAddress = () => {
                     value='officeAddress'
                     className='custom-option-item-check'
                   />
-                  <label className='custom-option-item px-2 py-1' htmlFor='officeAddress'>
+                  <label
+                    className='custom-option-item px-2 py-1'
+                    htmlFor='officeAddress'
+                  >
                     <span className='d-flex align-items-center mb-50'>
                       <Briefcase className='font-medium-4 me-50' />
-                      <span className='custom-option-item-title h4 fw-bolder mb-0'>Office</span>
+                      <span className='custom-option-item-title h4 fw-bolder mb-0'>
+                        Office
+                      </span>
                     </span>
                     <span className='d-block'>Delivery time (10am – 6pm)</span>
                   </label>
@@ -216,11 +235,19 @@ const BillingAddress = () => {
                 name='firstName'
                 control={control}
                 render={({ field }) => {
-                  console.log(field)
-                  return <Input placeholder='John' id='firstName' invalid={errors.firstName && true} {...field} />
+                  return (
+                    <Input
+                      placeholder='John'
+                      id='firstName'
+                      invalid={errors.firstName && true}
+                      {...field}
+                    />
+                  )
                 }}
               />
-              {errors.firstName && <FormFeedback>Please enter a valid First Name</FormFeedback>}
+              {errors.firstName && (
+                <FormFeedback>Please enter a valid First Name</FormFeedback>
+              )}
             </Col>
             <Col xs={12} md={6}>
               <Label className='form-label' for='lastName'>
@@ -230,10 +257,17 @@ const BillingAddress = () => {
                 name='lastName'
                 control={control}
                 render={({ field }) => (
-                  <Input id='lastName' placeholder='Doe' invalid={errors.lastName && true} {...field} />
+                  <Input
+                    id='lastName'
+                    placeholder='Doe'
+                    invalid={errors.lastName && true}
+                    {...field}
+                  />
                 )}
               />
-              {errors.lastName && <FormFeedback>Please enter a valid Last Name</FormFeedback>}
+              {errors.lastName && (
+                <FormFeedback>Please enter a valid Last Name</FormFeedback>
+              )}
             </Col>
             <Col xs={12}>
               <Label className='form-label' for='country'>
@@ -282,7 +316,12 @@ const BillingAddress = () => {
             <Col xs={12}>
               <div className='d-flex align-items-center'>
                 <div className='form-switch'>
-                  <Input type='switch' defaultChecked id='billing-switch' name='billing-switch' />
+                  <Input
+                    type='switch'
+                    defaultChecked
+                    id='billing-switch'
+                    name='billing-switch'
+                  />
                   <Label className='form-check-label' htmlFor='billing-switch'>
                     <span className='switch-icon-left'>
                       <Check size={14} />
@@ -292,7 +331,10 @@ const BillingAddress = () => {
                     </span>
                   </Label>
                 </div>
-                <Label className='form-check-label fw-bolder' for='billing-switch'>
+                <Label
+                  className='form-check-label fw-bolder'
+                  for='billing-switch'
+                >
                   Use as a billing address?
                 </Label>
               </div>
@@ -301,7 +343,13 @@ const BillingAddress = () => {
               <Button type='submit' className='me-1 mt-2' color='primary'>
                 Submit
               </Button>
-              <Button type='reset' className='mt-2' color='secondary' outline onClick={onDiscard}>
+              <Button
+                type='reset'
+                className='mt-2'
+                color='secondary'
+                outline
+                onClick={onDiscard}
+              >
                 Discard
               </Button>
             </Col>

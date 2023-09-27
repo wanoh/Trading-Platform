@@ -1,4 +1,9 @@
+// ** React
 import React, { useState } from 'react'
+
+// ** Custom Components
+import Sidebar from '@components/sidebar'
+
 import {
   TabContent,
   TabPane,
@@ -13,7 +18,7 @@ import {
   Row,
 } from 'reactstrap'
 
-const PreviewVertical = ({ title, doc, data }) => {
+const PreviewVertical = ({ title, docType, data, open, toggleSidebar }) => {
   const [active, setActive] = useState(1)
 
   const toggle = (tab) => {
@@ -23,15 +28,24 @@ const PreviewVertical = ({ title, doc, data }) => {
   }
 
   return (
-    <div>
+    <Sidebar
+      size='xl'
+      open={open}
+      title='Verification Details'
+      headerClassName='mb-1'
+      contentClassName='pt-0'
+      toggleSidebar={toggleSidebar}
+    >
       <Card>
-        <h3 className='mt-3 text-center'>Proof Of {title ? title : 'Card'}</h3>
-        <CardText className='text-center mb-3'>{doc ? doc : 'Card'}</CardText>
+        <h3 className='mt-3 text-center'>{title ? title : 'Proof Of Card'}</h3>
+        <CardText className='text-center mb-3'>
+          {docType ? docType : 'Card'}
+        </CardText>
         <CardBody>
           <div className='nav-vertical'>
             <Nav tabs className='nav-right'>
               {data.map((doc) => (
-                <NavItem>
+                <NavItem key={doc.id}>
                   <NavLink
                     active={active === doc.id}
                     onClick={() => {
@@ -46,7 +60,7 @@ const PreviewVertical = ({ title, doc, data }) => {
 
             <TabContent activeTab={active}>
               {data.map((doc) => (
-                <TabPane tabId={doc.id}>
+                <TabPane key={doc.id} tabId={doc.id}>
                   <div
                     style={{
                       border: '1px dashed #ffffff1a',
@@ -61,7 +75,7 @@ const PreviewVertical = ({ title, doc, data }) => {
           </div>
         </CardBody>
       </Card>
-    </div>
+    </Sidebar>
   )
 }
 export default PreviewVertical
