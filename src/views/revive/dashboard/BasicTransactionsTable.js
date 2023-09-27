@@ -1,5 +1,5 @@
 // ** Table Columns
-import { data, basicTransactionsData } from '../../tables/data-tables/data'
+import { data, basicTransactionsData } from './data'
 
 // ** Third Party Components
 import { ChevronDown } from 'react-feather'

@@ -6,7 +6,7 @@ import Avatar from '@components/avatar'
 
 // ** Store & Actions
 import { store } from '@store/store'
-import { getUser } from '../../../apps/user/store'
+import { getUser } from '../../users/store'
 
 // ** Icons Imports
 import { MoreVertical } from 'react-feather'

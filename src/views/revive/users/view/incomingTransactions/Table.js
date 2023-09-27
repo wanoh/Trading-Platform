@@ -110,7 +110,7 @@ const CustomHeader = ({
 const IncomingTransactionsTable = () => {
   // ** Store Vars
   const dispatch = useDispatch()
-  const store = useSelector((state) => state.reviveUsers)
+  const store = useSelector((state) => state.users)
   const toggleEditSidebar = () => setEditSliderState(!editSliderState)
 
   // ** Function to handle edit button click

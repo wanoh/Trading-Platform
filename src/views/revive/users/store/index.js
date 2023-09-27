@@ -51,12 +51,6 @@ export const usersSlice = createSlice({
     params: {},
     allData: [],
     selectedUser: null,
-    isVerificationSliderOpen: false,
-  },
-  reducers: {
-    toggleVerificationSlider: (state) => {
-      state.isVerificationSliderOpen = !state.isVerificationSliderOpen
-    },
   },
   extraReducers: (builder) => {
     builder

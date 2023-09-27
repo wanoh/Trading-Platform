@@ -8,7 +8,7 @@ import Sidebar from './Sidebar'
 import { columns } from './columns'
 
 // ** Store & Actions
-import { getAllData, getData } from '../../../../apps/user/store'
+import { getAllData, getData } from '../../../users/store'
 import { useDispatch, useSelector } from 'react-redux'
 
 // ** Third Party Components

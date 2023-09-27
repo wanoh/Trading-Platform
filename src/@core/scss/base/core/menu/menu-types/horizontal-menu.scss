@@ -9,11 +9,11 @@
 	Author URL: http://www.themeforest.net/user/pixinvent
 ==========================================================================================*/
 
-@import '../../../bootstrap-extended/include'; // Bootstrap includes
-@import '../../../components/include'; // Components includes
+@import "../../../bootstrap-extended/include"; // Bootstrap includes
+@import "../../../components/include"; // Components includes
 
 // Import first main menu mixin
-@import '../../mixins/main-menu-mixin';
+@import "../../mixins/main-menu-mixin";
 
 // Horizontal Menu
 //=========================
@@ -119,14 +119,14 @@
         &.dropdown-toggle {
           &::after {
             left: 0.4rem;
-            background-image: url(str-replace(str-replace($chevron-down, 'currentColor', $body-color), '#', '%23'));
+            background-image: url(str-replace(str-replace($chevron-down, "currentColor", $body-color), "#", "%23"));
           }
         }
       }
       .sidebar-group-active {
         .dropdown-toggle {
           &::after {
-            background-image: url(str-replace(str-replace($chevron-down, 'currentColor', $white), '#', '%23'));
+            background-image: url(str-replace(str-replace($chevron-down, "currentColor", $white), "#", "%23"));
           }
         }
       }
@@ -151,7 +151,7 @@
           margin-top: -7px;
           right: 1rem;
           // content: '\e844' !important;
-          background-image: url(str-replace(str-replace($chevron-right, 'currentColor', $body-color), '#', '%23'));
+          background-image: url(str-replace(str-replace($chevron-right, "currentColor", $body-color), "#", "%23"));
         }
         .dropdown-item {
           font-size: 1rem;
@@ -591,4 +591,4 @@
   }
 }
 // Import vertical-overlay-menu.scss for small screen support
-@import 'vertical-overlay-menu.scss';
+@import "vertical-overlay-menu.scss";

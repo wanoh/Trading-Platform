@@ -1,6 +1,5 @@
 // ** Third Party Components
 import { Doughnut } from 'react-chartjs-2'
-import { Monitor, ArrowDown, ArrowUp } from 'react-feather'
 
 // ** Reactstrap Imports
 import { Card, CardHeader, CardTitle, CardBody, Badge } from 'reactstrap'
@@ -12,7 +11,6 @@ const ChartjsRadarChart = ({
   tooltipShadow,
   color2,
   color1,
-  primary,
 }) => {
   // ** Chart Options
   const options = {

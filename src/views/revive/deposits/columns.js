@@ -1,12 +1,9 @@
-// ** React Imports
-import { Link } from 'react-router-dom'
-
 // ** Custom Components
 import Avatar from '@components/avatar'
 
 // ** Store & Actions
 import { store } from '@store/store'
-import { getUser, deleteUser } from '../../apps/user/store'
+import { getUser, deleteUser } from '../users/store'
 
 // ** Icons Imports
 import { Trash2, Edit } from 'react-feather'

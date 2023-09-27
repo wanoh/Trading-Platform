@@ -18,7 +18,7 @@ import '@styles/react/apps/app-users.scss'
 
 const UserView = () => {
   // ** Store Vars
-  const store = useSelector((state) => state.reviveUsers)
+  const store = useSelector((state) => state.users)
   const dispatch = useDispatch()
 
   // ** Hooks

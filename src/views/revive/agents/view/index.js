@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 
 // ** Store & Actions
-import { getUser } from '../../../apps/user/store'
+import { getUser } from '../../users/store'
 import { useSelector, useDispatch } from 'react-redux'
 
 // ** Reactstrap Imports

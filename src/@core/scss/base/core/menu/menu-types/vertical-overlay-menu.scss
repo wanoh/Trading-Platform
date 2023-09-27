@@ -9,11 +9,11 @@
     Author URL: http://www.themeforest.net/user/pixinvent
 ==========================================================================================*/
 
-@import '../../../bootstrap-extended/include'; // Bootstrap includes
-@import '../../../components/include'; // Components includes
+@import "../../../bootstrap-extended/include"; // Bootstrap includes
+@import "../../../components/include"; // Components includes
 
 // Import first main menu mixin
-@import '../../mixins/main-menu-mixin';
+@import "../../mixins/main-menu-mixin";
 
 // Vertical Overlay Menu
 //=========================
@@ -32,7 +32,10 @@
   .main-menu {
     opacity: 0;
     transform: translate3d(0, 0, 0);
-    transition: width 0.25s, opacity 0.25s, transform 0.25s;
+    transition:
+      width 0.25s,
+      opacity 0.25s,
+      transform 0.25s;
     width: $menu-expanded-width;
     left: -($menu-expanded-width);
 
@@ -68,7 +71,10 @@
     .main-menu {
       opacity: 1;
       transform: translate3d($menu-expanded-width, 0, 0);
-      transition: width 0.25s, opacity 0.25s, transform 0.25s;
+      transition:
+        width 0.25s,
+        opacity 0.25s,
+        transform 0.25s;
     }
   }
   &.menu-hide {

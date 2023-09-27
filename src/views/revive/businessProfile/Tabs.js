@@ -5,7 +5,7 @@ import { Fragment } from 'react'
 import { Nav, NavItem, NavLink, TabContent, TabPane } from 'reactstrap'
 
 // ** Icons Imports
-import { UserCheck, Upload, Download, Activity } from 'react-feather'
+import { UserCheck, Upload } from 'react-feather'
 import { TbHomeUp } from 'react-icons/tb'
 
 // ** User Components

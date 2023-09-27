@@ -42,7 +42,7 @@ const PreviewVertical = ({ title, docType, data, open, toggleSidebar }) => {
           {docType ? docType : 'Card'}
         </CardText>
         <CardBody>
-          <div className='nav-vertical'>
+          <div className='nav-vertical mb-5'>
             <Nav tabs className='nav-right'>
               {data.map((doc) => (
                 <NavItem key={doc.id}>
@@ -52,7 +52,9 @@ const PreviewVertical = ({ title, docType, data, open, toggleSidebar }) => {
                       toggle(doc.id)
                     }}
                   >
-                    <Button className='h-50'>{doc.btnText}</Button>
+                    <Button className='h-50' color='primary'>
+                      {doc.btnText}
+                    </Button>
                   </NavLink>
                 </NavItem>
               ))}
@@ -73,6 +75,20 @@ const PreviewVertical = ({ title, docType, data, open, toggleSidebar }) => {
               ))}
             </TabContent>
           </div>
+          <div className='hr'></div>
+          <hr color='primary' />
+          <Row>
+            <Col>
+              <Button className='w-100' color='success'>
+                Approve
+              </Button>
+            </Col>
+            <Col>
+              <Button className='w-100 ' color='danger'>
+                Decline
+              </Button>
+            </Col>
+          </Row>
         </CardBody>
       </Card>
     </Sidebar>

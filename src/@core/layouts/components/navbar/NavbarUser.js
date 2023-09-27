@@ -1,6 +1,5 @@
 // ** Dropdowns Imports
 import IntlDropdown from './IntlDropdown'
-import CartDropdown from './CartDropdown'
 import UserDropdown from './UserDropdown'
 import NavbarSearch from './NavbarSearch'
 import NotificationDropdown from './NotificationDropdown'
@@ -11,7 +10,7 @@ import { Sun, Moon } from 'react-feather'
 // ** Reactstrap Imports
 import { NavItem, NavLink } from 'reactstrap'
 
-const NavbarUser = props => {
+const NavbarUser = (props) => {
   // ** Props
   const { skin, setSkin } = props
 
@@ -33,7 +32,6 @@ const NavbarUser = props => {
         </NavLink>
       </NavItem>
       <NavbarSearch />
-      <CartDropdown />
       <NotificationDropdown />
       <UserDropdown />
     </ul>

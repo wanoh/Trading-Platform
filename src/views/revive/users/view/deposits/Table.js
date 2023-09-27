@@ -11,7 +11,7 @@ import { columns } from './columns'
 import EditTransactionSidebar from './EditSelectedTransaction'
 
 // ** Store & Actions
-import { getAllData, getData } from '../../../../apps/user/store'
+import { getAllData, getData } from '../../store'
 import { useDispatch, useSelector } from 'react-redux'
 
 // ** Third Party Components
@@ -42,7 +42,7 @@ const CustomHeader = ({
     <div className='invoice-list-table-header w-100 me-1 ms-50 mt-2 mb-75'>
       <Row>
         <Col xl='6' className='p-0 mb-3'>
-          <h4>Withdrawals</h4>
+          <h4>Deposits</h4>
         </Col>
         <Col
           xl='6'

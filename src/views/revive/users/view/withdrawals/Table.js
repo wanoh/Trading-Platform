@@ -11,7 +11,7 @@ import { columns } from './columns'
 import EditTransactionSidebar from './EditSelectedTransaction'
 
 // ** Store & Actions
-import { getAllData, getData } from '../../../../apps/user/store'
+import { getAllData, getData } from '../../store'
 import { useDispatch, useSelector } from 'react-redux'
 
 // ** Third Party Components

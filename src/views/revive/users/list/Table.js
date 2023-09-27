@@ -193,7 +193,7 @@ const UsersList = () => {
 
   // ** Store Vars
   const dispatch = useDispatch()
-  const store = useSelector((state) => state.reviveUsers)
+  const store = useSelector((state) => state.users)
   // const isEditSliderOpen = useSelector((state) => state.users.isEditSliderOpen)
 
   // ** States

@@ -61,7 +61,7 @@ const customStyles = {
 const UsersList = () => {
   // ** Store Vars
   const dispatch = useDispatch()
-  const store = useSelector((state) => state.reviveUsers)
+  const store = useSelector((state) => state.users)
   const togglePreviewBar = () => setPreviewSliderState(!previewSliderState)
 
   // ** Handle Edit Click Func
