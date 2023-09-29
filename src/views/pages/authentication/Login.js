@@ -10,7 +10,15 @@ import useJwt from '@src/auth/jwt/useJwt'
 import toast from 'react-hot-toast'
 import { useDispatch } from 'react-redux'
 import { useForm, Controller } from 'react-hook-form'
-import { Facebook, Twitter, Mail, GitHub, HelpCircle, Coffee, X } from 'react-feather'
+import {
+  Facebook,
+  Twitter,
+  Mail,
+  GitHub,
+  HelpCircle,
+  Coffee,
+  X,
+} from 'react-feather'
 
 // ** Actions
 import { handleLogin } from '@store/authentication'
@@ -37,7 +45,7 @@ import {
   CardText,
   CardTitle,
   FormFeedback,
-  UncontrolledTooltip
+  UncontrolledTooltip,
 } from 'reactstrap'
 
 // ** Illustrations Imports
@@ -56,9 +64,16 @@ const ToastContent = ({ t, name, role }) => {
       <div className='d-flex flex-column'>
         <div className='d-flex justify-content-between'>
           <h6>{name}</h6>
-          <X size={12} className='cursor-pointer' onClick={() => toast.dismiss(t.id)} />
+          <X
+            size={12}
+            className='cursor-pointer'
+            onClick={() => toast.dismiss(t.id)}
+          />
         </div>
-        <span>You have successfully logged in as an {role} user to Vuexy. Now you can start to explore. Enjoy!</span>
+        <span>
+          You have successfully logged in as an {role} user to Vuexy. Now you
+          can start to explore. Enjoy!
+        </span>
       </div>
     </div>
   )
@@ -66,7 +81,7 @@ const ToastContent = ({ t, name, role }) => {
 
 const defaultValues = {
   password: 'admin',
-  loginEmail: 'admin@demo.com'
+  loginEmail: 'admin@demo.com',
 }
 
 const Login = () => {
@@ -79,34 +94,43 @@ const Login = () => {
     control,
     setError,
     handleSubmit,
-    formState: { errors }
+    formState: { errors },
   } = useForm({ defaultValues })
 
   const source = skin === 'dark' ? illustrationsDark : illustrationsLight
 
-  const onSubmit = data => {
-    if (Object.values(data).every(field => field.length > 0)) {
+  const onSubmit = (data) => {
+    if (Object.values(data).every((field) => field.length > 0)) {
       useJwt
         .login({ email: data.loginEmail, password: data.password })
-        .then(res => {
-          const data = { ...res.data.userData, accessToken: res.data.accessToken, refreshToken: res.data.refreshToken }
+        .then((res) => {
+          const data = {
+            ...res.data.userData,
+            accessToken: res.data.accessToken,
+            refreshToken: res.data.refreshToken,
+          }
           dispatch(handleLogin(data))
           ability.update(res.data.userData.ability)
           navigate(getHomeRouteForLoggedInUser(data.role))
-          toast(t => (
-            <ToastContent t={t} role={data.role || 'admin'} name={data.fullName || data.username || 'John Doe'} />
+          toast((t) => (
+            <ToastContent
+              t={t}
+              role={data.role || 'admin'}
+              name={data.fullName || data.username || 'John Doe'}
+            />
           ))
         })
-        .catch(err => setError('loginEmail', {
+        .catch((err) =>
+          setError('loginEmail', {
             type: 'manual',
-            message: err.response.data.error
+            message: err.response.data.error,
           })
         )
     } else {
       for (const key in data) {
         if (data[key].length === 0) {
           setError(key, {
-            type: 'manual'
+            type: 'manual',
           })
         }
       }
@@ -116,19 +140,37 @@ const Login = () => {
   return (
     <div className='auth-wrapper auth-cover'>
       <Row className='auth-inner m-0'>
-        <Link className='brand-logo' to='/' onClick={e => e.preventDefault()}>
+        <Link className='brand-logo' to='/' onClick={(e) => e.preventDefault()}>
           <svg viewBox='0 0 139 95' version='1.1' height='28'>
             <defs>
-              <linearGradient x1='100%' y1='10.5120544%' x2='50%' y2='89.4879456%' id='linearGradient-1'>
+              <linearGradient
+                x1='100%'
+                y1='10.5120544%'
+                x2='50%'
+                y2='89.4879456%'
+                id='linearGradient-1'
+              >
                 <stop stopColor='#000000' offset='0%'></stop>
                 <stop stopColor='#FFFFFF' offset='100%'></stop>
               </linearGradient>
-              <linearGradient x1='64.0437835%' y1='46.3276743%' x2='37.373316%' y2='100%' id='linearGradient-2'>
+              <linearGradient
+                x1='64.0437835%'
+                y1='46.3276743%'
+                x2='37.373316%'
+                y2='100%'
+                id='linearGradient-2'
+              >
                 <stop stopColor='#EEEEEE' stopOpacity='0' offset='0%'></stop>
                 <stop stopColor='#FFFFFF' offset='100%'></stop>
               </linearGradient>
             </defs>
-            <g id='Page-1' stroke='none' strokeWidth='1' fill='none' fillRule='evenodd'>
+            <g
+              id='Page-1'
+              stroke='none'
+              strokeWidth='1'
+              fill='none'
+              fillRule='evenodd'
+            >
               <g id='Artboard' transform='translate(-400.000000, -178.000000)'>
                 <g id='Group' transform='translate(400.000000, 178.000000)'>
                   <path
@@ -172,22 +214,24 @@ const Login = () => {
             <img className='img-fluid' src={source} alt='Login Cover' />
           </div>
         </Col>
-        <Col className='d-flex align-items-center auth-bg px-2 p-lg-5' lg='4' sm='12'>
+        <Col
+          className='d-flex align-items-center auth-bg px-2 p-lg-5'
+          lg='4'
+          sm='12'
+        >
           <Col className='px-xl-2 mx-auto' sm='8' md='6' lg='12'>
             <CardTitle tag='h2' className='fw-bold mb-1'>
-              Welcome to Vuexy! 👋
+              Welcome to Revive Assets! 👋
             </CardTitle>
-            <CardText className='mb-2'>Please sign-in to your account and start the adventure</CardText>
+            <CardText className='mb-2'>
+              Please sign-in to your account and start the adventure
+            </CardText>
             <Alert color='primary'>
               <div className='alert-body font-small-2'>
                 <p>
                   <small className='me-50'>
-                    <span className='fw-bold'>Admin:</span> admin@demo.com | admin
-                  </small>
-                </p>
-                <p>
-                  <small className='me-50'>
-                    <span className='fw-bold'>Client:</span> client@demo.com | client
+                    <span className='fw-bold'>Admin:</span> admin@demo.com |
+                    admin
                   </small>
                 </p>
               </div>
@@ -201,7 +245,10 @@ const Login = () => {
                 This is just for ACL demo purpose.
               </UncontrolledTooltip>
             </Alert>
-            <Form className='auth-login-form mt-2' onSubmit={handleSubmit(onSubmit)}>
+            <Form
+              className='auth-login-form mt-2'
+              onSubmit={handleSubmit(onSubmit)}
+            >
               <div className='mb-1'>
                 <Label className='form-label' for='login-email'>
                   Email
@@ -220,7 +267,9 @@ const Login = () => {
                     />
                   )}
                 />
-                {errors.loginEmail && <FormFeedback>{errors.loginEmail.message}</FormFeedback>}
+                {errors.loginEmail && (
+                  <FormFeedback>{errors.loginEmail.message}</FormFeedback>
+                )}
               </div>
               <div className='mb-1'>
                 <div className='d-flex justify-content-between'>
@@ -236,7 +285,11 @@ const Login = () => {
                   name='password'
                   control={control}
                   render={({ field }) => (
-                    <InputPasswordToggle className='input-group-merge' invalid={errors.password && true} {...field} />
+                    <InputPasswordToggle
+                      className='input-group-merge'
+                      invalid={errors.password && true}
+                      {...field}
+                    />
                   )}
                 />
               </div>
