@@ -10,7 +10,7 @@ import { isUserLoggedIn } from '@utils'
 
 // ** Store & Actions
 import { useDispatch } from 'react-redux'
-import { handleLogout } from '@store/authentication'
+import { handleLogout } from '@store/firebase.auth'
 
 // ** Third Party Components
 import {

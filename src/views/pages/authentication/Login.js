@@ -10,18 +10,11 @@ import useJwt from '@src/auth/jwt/useJwt'
 import toast from 'react-hot-toast'
 import { useDispatch } from 'react-redux'
 import { useForm, Controller } from 'react-hook-form'
-import {
-  Facebook,
-  Twitter,
-  Mail,
-  GitHub,
-  HelpCircle,
-  Coffee,
-  X,
-} from 'react-feather'
+import { Facebook, HelpCircle, Coffee, X } from 'react-feather'
+import { BsGoogle } from 'react-icons/bs'
 
 // ** Actions
-import { handleLogin } from '@store/authentication'
+import { handleLogin } from '@store/firebase.auth'
 
 // ** Context
 import { AbilityContext } from '@src/utility/context/Can'
@@ -32,6 +25,12 @@ import InputPasswordToggle from '@components/input-password-toggle'
 
 // ** Utils
 import { getHomeRouteForLoggedInUser } from '@utils'
+
+// ** User Role
+const userRole = 'admin'
+
+// ** tempRole
+const tempRole = [{ action: 'manage', subject: 'all' }]
 
 // ** Reactstrap Imports
 import {
@@ -54,6 +53,16 @@ import illustrationsDark from '@src/assets/images/pages/login-v2-dark.svg'
 
 // ** Styles
 import '@styles/react/pages/page-authentication.scss'
+import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth'
+import {
+  auth,
+  facebookProvider,
+  googlProvider,
+} from '../../../configs/firebase'
+
+// ** Yup
+import * as yup from 'yup'
+import { yupResolver } from '@hookform/resolvers/yup'
 
 const ToastContent = ({ t, name, role }) => {
   return (
@@ -81,10 +90,27 @@ const ToastContent = ({ t, name, role }) => {
 
 const defaultValues = {
   password: 'admin',
-  loginEmail: 'admin@demo.com',
+  email: 'admin@demo.com',
 }
 
 const Login = () => {
+  // ** Login Schema
+  const LoginSchema = yup.object().shape({
+    email: yup
+      .string()
+      .email('Invalid Email Address')
+      .required('Email is required'),
+    password: yup
+      .string()
+      .required('Password is required')
+      .min(8, 'Password must be between 8 and 20 characters long')
+      .max(20, 'Password must be between 8 and 20 characters long')
+      .matches(
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/,
+        'Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character'
+      ),
+  })
+
   // ** Hooks
   const { skin } = useSkin()
   const dispatch = useDispatch()
@@ -95,37 +121,77 @@ const Login = () => {
     setError,
     handleSubmit,
     formState: { errors },
-  } = useForm({ defaultValues })
+  } = useForm({
+    defaultValues,
+    resolver: yupResolver(LoginSchema),
+  })
+
+  // ** Split Email Func
+  function splitEmail(email) {
+    const atIndex = email.indexOf('@') // Find the index of the @ symbol
+    if (atIndex === -1) {
+      // If no @ symbol is found, return null
+      return null
+    }
+    const username = email.slice(0, atIndex) // Get the substring before the @ symbol
+    const domain = email.slice(atIndex + 1) // Get the substring after the @ symbol
+    return { username, domain } // Return an object containing the username and domain
+  }
+
+  // ** Login Function
+  const handleLoginFunc = (user) => {
+    const { email: authEmail, uid: userId, photoURL } = user
+    const { accessToken, refreshToken, expirationTime, isExpired } =
+      user.stsTokenManager
+    const { username } = splitEmail(authEmail)
+
+    console.log('User', user)
+
+    const loginData = {
+      ability: tempRole,
+      email: authEmail,
+      id: userId,
+      accessToken,
+      refreshToken,
+      role: userRole,
+      avatar: photoURL,
+      username,
+      expirationTime,
+      isExpired,
+    }
+
+    dispatch(handleLogin(loginData))
+
+    ability.update(loginData.ability)
+    navigate(getHomeRouteForLoggedInUser(loginData.role))
+    toast.success((t) => (
+      <ToastContent
+        t={t}
+        role={loginData.role || 'admin'}
+        name={loginData.username}
+      />
+    ))
+  }
 
   const source = skin === 'dark' ? illustrationsDark : illustrationsLight
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     if (Object.values(data).every((field) => field.length > 0)) {
-      useJwt
-        .login({ email: data.loginEmail, password: data.password })
-        .then((res) => {
-          const data = {
-            ...res.data.userData,
-            accessToken: res.data.accessToken,
-            refreshToken: res.data.refreshToken,
-          }
-          dispatch(handleLogin(data))
-          ability.update(res.data.userData.ability)
-          navigate(getHomeRouteForLoggedInUser(data.role))
-          toast((t) => (
-            <ToastContent
-              t={t}
-              role={data.role || 'admin'}
-              name={data.fullName || data.username || 'John Doe'}
-            />
-          ))
-        })
-        .catch((err) =>
-          setError('loginEmail', {
-            type: 'manual',
-            message: err.response.data.error,
-          })
+      const { email, password } = data
+      try {
+        const userCredentials = await signInWithEmailAndPassword(
+          auth,
+          email,
+          password
         )
+        const user = userCredentials.user
+        handleLoginFunc(user)
+      } catch (err) {
+        setError('email', {
+          type: 'manual',
+          message: err,
+        })
+      }
     } else {
       for (const key in data) {
         if (data[key].length === 0) {
@@ -134,6 +200,26 @@ const Login = () => {
           })
         }
       }
+    }
+  }
+
+  const handleGoogleAuth = async () => {
+    try {
+      const userCredentials = await signInWithPopup(auth, googlProvider)
+      const user = userCredentials.user
+      handleLoginFunc(user)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const handleFacebookAuth = async () => {
+    try {
+      const userCredentials = await signInWithPopup(auth, facebookProvider)
+      const user = userCredentials.user
+      handleLoginFunc(user)
+    } catch (error) {
+      console.log(error)
     }
   }
 
@@ -254,21 +340,28 @@ const Login = () => {
                   Email
                 </Label>
                 <Controller
-                  id='loginEmail'
-                  name='loginEmail'
+                  id='email'
+                  name='email'
                   control={control}
                   render={({ field }) => (
                     <Input
                       autoFocus
                       type='email'
                       placeholder='john@example.com'
-                      invalid={errors.loginEmail && true}
+                      invalid={errors.email && true}
                       {...field}
                     />
                   )}
                 />
-                {errors.loginEmail && (
-                  <FormFeedback>{errors.loginEmail.message}</FormFeedback>
+                {/* {errors.addressOne && (
+                  <span className='text-danger'>
+                    {errors.addressOne.message}
+                  </span>
+                )} */}
+                {errors.email && (
+                  <FormFeedback>
+                    <div>{errors.email.message}</div>
+                  </FormFeedback>
                 )}
               </div>
               <div className='mb-1'>
@@ -292,6 +385,9 @@ const Login = () => {
                     />
                   )}
                 />
+                {errors.password && (
+                  <span className='text-danger'>{errors.password.message}</span>
+                )}
               </div>
               <div className='form-check mb-1'>
                 <Input type='checkbox' id='remember-me' />
@@ -313,17 +409,11 @@ const Login = () => {
               <div className='divider-text'>or</div>
             </div>
             <div className='auth-footer-btn d-flex justify-content-center'>
-              <Button color='facebook'>
+              <Button color='google' onClick={handleGoogleAuth}>
+                <BsGoogle size={14} />
+              </Button>
+              <Button color='facebook' onClick={handleFacebookAuth}>
                 <Facebook size={14} />
-              </Button>
-              <Button color='twitter'>
-                <Twitter size={14} />
-              </Button>
-              <Button color='google'>
-                <Mail size={14} />
-              </Button>
-              <Button className='me-0' color='github'>
-                <GitHub size={14} />
               </Button>
             </div>
           </Col>

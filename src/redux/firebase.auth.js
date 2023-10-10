@@ -1,4 +1,3 @@
-// ** Redux Imports
 import { createSlice } from '@reduxjs/toolkit'
 
 // ** UseJWT import to get config
@@ -6,13 +5,14 @@ import useJwt from '@src/auth/jwt/useJwt'
 
 const config = useJwt.jwtConfig
 
+// Get initialState from localStorage
 const initialUser = () => {
   const item = window.localStorage.getItem('userData')
   //** Parse stored json or if none return initialValue
   return item ? JSON.parse(item) : {}
 }
 
-export const authSlice = createSlice({
+const fireAuthSlice = createSlice({
   name: 'authentication',
   initialState: {
     userData: initialUser(),
@@ -46,6 +46,6 @@ export const authSlice = createSlice({
   },
 })
 
-export const { handleLogin, handleLogout } = authSlice.actions
+export const { handleLogin, handleLogout } = fireAuthSlice.actions
 
-export default authSlice.reducer
+export default fireAuthSlice.reducer

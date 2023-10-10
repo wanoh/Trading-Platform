@@ -49,6 +49,7 @@ import './assets/scss/style.scss'
 // ** Service Worker
 import * as serviceWorker from './serviceWorker'
 
+// ** Expiration
 // ** Lazy load app
 const LazyApp = lazy(() => import('./App'))
 
@@ -62,7 +63,10 @@ root.render(
         <AbilityContext.Provider value={ability}>
           <ThemeContext>
             <LazyApp />
-            <Toaster position={themeConfig.layout.toastPosition} toastOptions={{ className: 'react-hot-toast' }} />
+            <Toaster
+              position={themeConfig.layout.toastPosition}
+              toastOptions={{ className: 'react-hot-toast' }}
+            />
           </ThemeContext>
         </AbilityContext.Provider>
       </Suspense>

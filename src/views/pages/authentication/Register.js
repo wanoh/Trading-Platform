@@ -21,7 +21,17 @@ import { AbilityContext } from '@src/utility/context/Can'
 import InputPasswordToggle from '@components/input-password-toggle'
 
 // ** Reactstrap Imports
-import { Row, Col, CardTitle, CardText, Label, Button, Form, Input, FormFeedback } from 'reactstrap'
+import {
+  Row,
+  Col,
+  CardTitle,
+  CardText,
+  Label,
+  Button,
+  Form,
+  Input,
+  FormFeedback,
+} from 'reactstrap'
 
 // ** Illustrations Imports
 import illustrationsLight from '@src/assets/images/pages/register-v2.svg'
@@ -34,7 +44,7 @@ const defaultValues = {
   email: '',
   terms: false,
   username: '',
-  password: ''
+  password: '',
 }
 
 const Register = () => {
@@ -47,25 +57,28 @@ const Register = () => {
     control,
     setError,
     handleSubmit,
-    formState: { errors }
+    formState: { errors },
   } = useForm({ defaultValues })
 
   const source = skin === 'dark' ? illustrationsDark : illustrationsLight
 
-  const onSubmit = data => {
+  const onSubmit = (data) => {
     const tempData = { ...data }
     delete tempData.terms
-    if (Object.values(tempData).every(field => field.length > 0) && data.terms === true) {
+    if (
+      Object.values(tempData).every((field) => field.length > 0) &&
+      data.terms === true
+    ) {
       const { username, email, password } = data
       useJwt
         .register({ username, email, password })
-        .then(res => {
+        .then((res) => {
           if (res.data.error) {
             for (const property in res.data.error) {
               if (res.data.error[property] !== null) {
                 setError(property, {
                   type: 'manual',
-                  message: res.data.error[property]
+                  message: res.data.error[property],
                 })
               }
             }
@@ -76,18 +89,18 @@ const Register = () => {
             navigate('/')
           }
         })
-        .catch(err => console.log(err))
+        .catch((err) => console.log(err))
     } else {
       for (const key in data) {
         if (data[key].length === 0) {
           setError(key, {
             type: 'manual',
-            message: `Please enter a valid ${key}`
+            message: `Please enter a valid ${key}`,
           })
         }
         if (key === 'terms' && data.terms === false) {
           setError('terms', {
-            type: 'manual'
+            type: 'manual',
           })
         }
       }
@@ -97,19 +110,37 @@ const Register = () => {
   return (
     <div className='auth-wrapper auth-cover'>
       <Row className='auth-inner m-0'>
-        <Link className='brand-logo' to='/' onClick={e => e.preventDefault()}>
+        <Link className='brand-logo' to='/' onClick={(e) => e.preventDefault()}>
           <svg viewBox='0 0 139 95' version='1.1' height='28'>
             <defs>
-              <linearGradient x1='100%' y1='10.5120544%' x2='50%' y2='89.4879456%' id='linearGradient-1'>
+              <linearGradient
+                x1='100%'
+                y1='10.5120544%'
+                x2='50%'
+                y2='89.4879456%'
+                id='linearGradient-1'
+              >
                 <stop stopColor='#000000' offset='0%'></stop>
                 <stop stopColor='#FFFFFF' offset='100%'></stop>
               </linearGradient>
-              <linearGradient x1='64.0437835%' y1='46.3276743%' x2='37.373316%' y2='100%' id='linearGradient-2'>
+              <linearGradient
+                x1='64.0437835%'
+                y1='46.3276743%'
+                x2='37.373316%'
+                y2='100%'
+                id='linearGradient-2'
+              >
                 <stop stopColor='#EEEEEE' stopOpacity='0' offset='0%'></stop>
                 <stop stopColor='#FFFFFF' offset='100%'></stop>
               </linearGradient>
             </defs>
-            <g id='Page-1' stroke='none' strokeWidth='1' fill='none' fillRule='evenodd'>
+            <g
+              id='Page-1'
+              stroke='none'
+              strokeWidth='1'
+              fill='none'
+              fillRule='evenodd'
+            >
               <g id='Artboard' transform='translate(-400.000000, -178.000000)'>
                 <g id='Group' transform='translate(400.000000, 178.000000)'>
                   <path
@@ -153,14 +184,24 @@ const Register = () => {
             <img className='img-fluid' src={source} alt='Login Cover' />
           </div>
         </Col>
-        <Col className='d-flex align-items-center auth-bg px-2 p-lg-5' lg='4' sm='12'>
+        <Col
+          className='d-flex align-items-center auth-bg px-2 p-lg-5'
+          lg='4'
+          sm='12'
+        >
           <Col className='px-xl-2 mx-auto' sm='8' md='6' lg='12'>
             <CardTitle tag='h2' className='fw-bold mb-1'>
               Adventure starts here 🚀
             </CardTitle>
-            <CardText className='mb-2'>Make your app management easy and fun!</CardText>
+            <CardText className='mb-2'>
+              Make your app management easy and fun!
+            </CardText>
 
-            <Form action='/' className='auth-register-form mt-2' onSubmit={handleSubmit(onSubmit)}>
+            <Form
+              action='/'
+              className='auth-register-form mt-2'
+              onSubmit={handleSubmit(onSubmit)}
+            >
               <div className='mb-1'>
                 <Label className='form-label' for='register-username'>
                   Username
@@ -170,10 +211,17 @@ const Register = () => {
                   name='username'
                   control={control}
                   render={({ field }) => (
-                    <Input autoFocus placeholder='johndoe' invalid={errors.username && true} {...field} />
+                    <Input
+                      autoFocus
+                      placeholder='johndoe'
+                      invalid={errors.username && true}
+                      {...field}
+                    />
                   )}
                 />
-                {errors.username ? <FormFeedback>{errors.username.message}</FormFeedback> : null}
+                {errors.username ? (
+                  <FormFeedback>{errors.username.message}</FormFeedback>
+                ) : null}
               </div>
               <div className='mb-1'>
                 <Label className='form-label' for='register-email'>
@@ -184,10 +232,17 @@ const Register = () => {
                   name='email'
                   control={control}
                   render={({ field }) => (
-                    <Input type='email' placeholder='john@example.com' invalid={errors.email && true} {...field} />
+                    <Input
+                      type='email'
+                      placeholder='john@example.com'
+                      invalid={errors.email && true}
+                      {...field}
+                    />
                   )}
                 />
-                {errors.email ? <FormFeedback>{errors.email.message}</FormFeedback> : null}
+                {errors.email ? (
+                  <FormFeedback>{errors.email.message}</FormFeedback>
+                ) : null}
               </div>
               <div className='mb-1'>
                 <Label className='form-label' for='register-password'>
@@ -198,7 +253,11 @@ const Register = () => {
                   name='password'
                   control={control}
                   render={({ field }) => (
-                    <InputPasswordToggle className='input-group-merge' invalid={errors.password && true} {...field} />
+                    <InputPasswordToggle
+                      className='input-group-merge'
+                      invalid={errors.password && true}
+                      {...field}
+                    />
                   )}
                 />
               </div>
@@ -207,12 +266,22 @@ const Register = () => {
                   name='terms'
                   control={control}
                   render={({ field }) => (
-                    <Input {...field} id='terms' type='checkbox' checked={field.value} invalid={errors.terms && true} />
+                    <Input
+                      {...field}
+                      id='terms'
+                      type='checkbox'
+                      checked={field.value}
+                      invalid={errors.terms && true}
+                    />
                   )}
                 />
                 <Label className='form-check-label' for='terms'>
                   I agree to
-                  <a className='ms-25' href='/' onClick={e => e.preventDefault()}>
+                  <a
+                    className='ms-25'
+                    href='/'
+                    onClick={(e) => e.preventDefault()}
+                  >
                     privacy policy & terms
                   </a>
                 </Label>
