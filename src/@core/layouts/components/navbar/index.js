@@ -1,9 +1,9 @@
 // ** React Imports
-import { Fragment, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 // ** Custom Components
 import NavbarUser from './NavbarUser'
-import NavbarBookmarks from './NavbarBookmarks'
+
 import { Button } from 'reactstrap'
 
 // ** Toast
@@ -63,13 +63,9 @@ const ThemeNavbar = (props) => {
   }, [expirationTime, toastShown])
 
   return (
-    <Fragment>
-      <div className='bookmark-wrapper d-flex align-items-center'>
-        <NavbarBookmarks setMenuVisibility={setMenuVisibility} />
-      </div>
+    <>
       <NavbarUser skin={skin} setSkin={setSkin} />
-      <div></div>
-    </Fragment>
+    </>
   )
 }
 

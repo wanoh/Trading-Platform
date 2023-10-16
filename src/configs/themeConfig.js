@@ -6,16 +6,16 @@ import logo from '@src/assets/images/revive/revive-logo.png'
 //Template config options
 const themeConfig = {
   app: {
-    appName: 'Revive',
+    appName: 'Exness',
     appLogoImage: logo,
   },
   layout: {
     isRTL: false,
     skin: 'light', // light, dark, bordered, semi-dark
-    type: 'vertical', // vertical, horizontal
-    contentWidth: 'boxed', // full, boxed
+    type: 'horizontal', // vertical, horizontal
+    contentWidth: 'full', // full, boxed
     menu: {
-      isHidden: false,
+      isHidden: true,
       isCollapsed: false,
     },
     navbar: {

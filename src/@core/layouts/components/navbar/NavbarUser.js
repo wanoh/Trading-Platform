@@ -1,14 +1,24 @@
 // ** Dropdowns Imports
-import IntlDropdown from './IntlDropdown'
 import UserDropdown from './UserDropdown'
-import NavbarSearch from './NavbarSearch'
-import NotificationDropdown from './NotificationDropdown'
+import AppMenuDropdown from './AppMenuDropdown'
+import AlertDropdown from './AlertDropdown'
+import AccountDetails from './AccountDropdown'
+import StackedCardGroup from '../../../../components/StackCards'
 
 // ** Third Party Components
 import { Sun, Moon } from 'react-feather'
 
 // ** Reactstrap Imports
-import { NavItem, NavLink } from 'reactstrap'
+import {
+  Button,
+  Card,
+  CardTitle,
+  Container,
+  NavItem,
+  NavLink,
+} from 'reactstrap'
+import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 const NavbarUser = (props) => {
   // ** Props
@@ -24,17 +34,41 @@ const NavbarUser = (props) => {
   }
 
   return (
-    <ul className='nav navbar-nav align-items-center ms-auto'>
-      <IntlDropdown />
-      <NavItem className='d-none d-lg-block'>
-        <NavLink className='nav-link-style'>
-          <ThemeToggler />
-        </NavLink>
-      </NavItem>
-      <NavbarSearch />
-      <NotificationDropdown />
-      <UserDropdown />
-    </ul>
+    <>
+      <div className='me-auto d-flex align-items-center justify-content-center'>
+        <ul className='nav navbar-nav'>
+          <NavItem>
+            <Link
+              to='/'
+              className='navbar-brand d-flex align-items-center justify-content-center'
+            >
+              <span className='brand-logo'>
+                {/* <img src={themeConfig.app.appLogoImage} alt='logo' /> */}
+              </span>
+              <h2 className='brand-text mb-0 text-primary'>Exness</h2>
+            </Link>
+          </NavItem>
+        </ul>
+      </div>
+      <div className='d-flex align-items-center justify-content-center'>
+        <StackedCardGroup />
+      </div>
+      <ul className='nav navbar-nav align-items-center justify-content-between ms-auto w-50'>
+        <AccountDetails />
+        <NavItem className='d-none d-lg-block'>
+          <NavLink className='nav-link-style'>
+            <ThemeToggler />
+          </NavLink>
+        </NavItem>
+        <AlertDropdown />
+        <AppMenuDropdown />
+        <UserDropdown />
+
+        <Button color='primary' outline>
+          Deposit
+        </Button>
+      </ul>
+    </>
   )
 }
 export default NavbarUser

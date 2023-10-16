@@ -4,7 +4,7 @@ import { Fragment } from 'react'
 // ** Routes Imports
 import AuthenticationRoutes from './Authentication'
 
-// Revive Routes Imports
+// App Routes Imports
 import DashboardRoute from './Dashboard'
 import UsersRoute from './Users'
 import DepositRoute from './Deposits'
@@ -13,6 +13,7 @@ import PaymentRoute from './Payment'
 import BusinessProfile from './BusinessProfile'
 import Agents from './Agents'
 import Tickets from './Tickets'
+import TradingTerminal from './TradingTerminal'
 
 // ** Layouts
 import BlankLayout from '@layouts/BlankLayout'
@@ -34,15 +35,16 @@ const getLayout = {
 }
 
 // ** Document title
-const TemplateTitle = 'Revive Assets'
+const TemplateTitle = 'Trading System'
 
 // ** default route changed
-const DefaultRoute = '/dashboard'
+const DefaultRoute = '/tradingterminal'
 
 // ** Merge Routes
 const Routes = [
   ...AuthenticationRoutes,
   ...DashboardRoute,
+  ...TradingTerminal,
   ...UsersRoute,
   ...Agents,
   ...DepositRoute,
@@ -107,7 +109,7 @@ const MergeLayoutRoutes = (layout, defaultLayout) => {
 }
 
 const getRoutes = (layout) => {
-  const defaultLayout = layout || 'vertical'
+  const defaultLayout = layout || 'horizontal'
   const layouts = ['vertical', 'horizontal', 'blank']
 
   const AllRoutes = []

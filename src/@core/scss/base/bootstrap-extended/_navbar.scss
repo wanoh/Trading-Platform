@@ -20,7 +20,9 @@
   padding: 0px;
   min-height: $navbar-height;
   font-family: $font-family-monospace;
-  transition: 300ms ease all, background 0s;
+  transition:
+    300ms ease all,
+    background 0s;
   z-index: 997;
 
   &.fixed-top,
@@ -29,7 +31,7 @@
   }
 
   // Apply navbar color as per background
-  &[class*='bg-'] {
+  &[class*="bg-"] {
     .navbar-nav {
       .nav-item {
         > a {
@@ -80,6 +82,7 @@
     width: calc(100vw - (100vw - 100%) - #{$sidebar-width});
     background: transparent;
     box-shadow: none !important; // remove this if removing "menu-shadow" class
+    display: none;
   }
 
   // add border to navbar
@@ -293,7 +296,9 @@
           }
 
           img {
-            box-shadow: 0 4px 8px 0 rgba($black, 0.12), 0 2px 4px 0 rgba($black, 0.08);
+            box-shadow:
+              0 4px 8px 0 rgba($black, 0.12),
+              0 2px 4px 0 rgba($black, 0.08);
           }
         }
 

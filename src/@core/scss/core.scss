@@ -11,3 +11,36 @@
 
 // React Specific
 @import "react/index";
+
+// ** Trading Platform custom css
+.stacked-card-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.stacked-card {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 12px;
+    margin-right: -50px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.stacked-card:last-child {
+    margin-right: 0;
+}
+
+.stacked-card button {
+    display: block;
+    margin-top: 8px;
+}
+
+.active-card {
+    border-top: #0f0 solid 5px;
+    z-index: 99;
+}

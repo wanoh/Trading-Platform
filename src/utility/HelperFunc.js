@@ -1,7 +1,7 @@
-import yup from 'yup'
+import * as yup from 'yup'
 
 // ** Split Email Func.
-export function splitEmail(email) {
+export const splitEmail = (email) => {
   const atIndex = email.indexOf('@') // Find the index of the @ symbol
   if (atIndex === -1) {
     // If no @ symbol is found, return null
@@ -18,6 +18,15 @@ export const formSchema = yup.object().shape({
     .string()
     .email('Enter a valid email address')
     .required('Email is required'),
+  password: yup
+    .string()
+    .required('Password is required')
+    .min(8, 'Password must be between 8 and 20 characters long')
+    .max(20, 'Password must be between 8 and 20 characters long')
+    .matches(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/,
+      'Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character'
+    ),
   firstName: yup.string().required('First name is required'),
   lastName: yup.string().required('Last name is required'),
   addressOne: yup.string().required('Address is required'),

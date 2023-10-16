@@ -160,7 +160,6 @@ const VerticalLayout = (props) => {
           setMenuVisibility={setMenuVisibility}
         />
       ) : null}
-
       <Navbar
         expand='lg'
         container={false}
@@ -186,7 +185,6 @@ const VerticalLayout = (props) => {
         </div>
       </Navbar>
       {children}
-
       {/* Vertical Nav Menu Overlay */}
       <div
         className={classnames('sidenav-overlay', {
@@ -194,8 +192,7 @@ const VerticalLayout = (props) => {
         })}
         onClick={() => setMenuVisibility(false)}
       ></div>
-      {/* Vertical Nav Menu Overlay */}
-
+      Vertical Nav Menu Overlay
       {themeConfig.layout.customizer === true ? (
         <Customizer
           skin={skin}
@@ -237,7 +234,6 @@ const VerticalLayout = (props) => {
           />
         )}
       </footer>
-
       {themeConfig.layout.scrollTop === true ? (
         <div className='scroll-to-top'>
           <ScrollToTop showOffset={300} className='scroll-top d-block'>

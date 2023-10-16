@@ -4,7 +4,6 @@ import { Link, useNavigate } from 'react-router-dom'
 
 // ** Custom Hooks
 import { useSkin } from '@hooks/useSkin'
-import useJwt from '@src/auth/jwt/useJwt'
 
 // ** Third Party Components
 import toast from 'react-hot-toast'
@@ -25,6 +24,9 @@ import InputPasswordToggle from '@components/input-password-toggle'
 
 // ** Utils
 import { getHomeRouteForLoggedInUser } from '@utils'
+
+// ** Split Email Func
+import { splitEmail, formSchema } from '../../../utility/HelperFunc'
 
 // ** User Role
 const userRole = 'admin'
@@ -94,23 +96,6 @@ const defaultValues = {
 }
 
 const Login = () => {
-  // ** Login Schema
-  const LoginSchema = yup.object().shape({
-    email: yup
-      .string()
-      .email('Invalid Email Address')
-      .required('Email is required'),
-    password: yup
-      .string()
-      .required('Password is required')
-      .min(8, 'Password must be between 8 and 20 characters long')
-      .max(20, 'Password must be between 8 and 20 characters long')
-      .matches(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/,
-        'Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character'
-      ),
-  })
-
   // ** Hooks
   const { skin } = useSkin()
   const dispatch = useDispatch()
@@ -123,20 +108,8 @@ const Login = () => {
     formState: { errors },
   } = useForm({
     defaultValues,
-    resolver: yupResolver(LoginSchema),
+    resolver: yupResolver(formSchema),
   })
-
-  // ** Split Email Func
-  function splitEmail(email) {
-    const atIndex = email.indexOf('@') // Find the index of the @ symbol
-    if (atIndex === -1) {
-      // If no @ symbol is found, return null
-      return null
-    }
-    const username = email.slice(0, atIndex) // Get the substring before the @ symbol
-    const domain = email.slice(atIndex + 1) // Get the substring after the @ symbol
-    return { username, domain } // Return an object containing the username and domain
-  }
 
   // ** Login Function
   const handleLoginFunc = (user) => {
