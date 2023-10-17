@@ -61,10 +61,7 @@ export default function TradingViewWidget() {
   }, [activeInstrument, widgetReady])
 
   return (
-    <div
-      className='tradingview-widget-container'
-      style={{ height: '100%', width: '100%' }}
-    >
+    <div className='tradingview-widget-container' style={{ width: '100%' }}>
       <div id='tradingview_6c538' />
     </div>
   )

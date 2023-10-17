@@ -4,7 +4,8 @@ import React from 'react'
 import InstrumentTable from './instruments/Instruments'
 import Chart from './chart/TradingViewChart'
 import { Col, Row } from 'reactstrap'
-import Order from './order/Order'
+import OrderPanel from './orderPanel/Order'
+import OrdersTable from './ordersTable'
 
 const TradingTerminal = () => {
   return (
@@ -13,10 +14,13 @@ const TradingTerminal = () => {
         <InstrumentTable />
       </Col>
       <Col sm='6'>
-        <Chart />
+        <div className='mb-3'>
+          <Chart />
+        </div>
+        <OrdersTable />
       </Col>
       <Col sm='3'>
-        <Order />
+        <OrderPanel />
       </Col>
     </Row>
   )
