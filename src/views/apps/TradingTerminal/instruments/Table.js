@@ -6,6 +6,7 @@ import { reOrderColumns } from './tableData'
 
 // ** Third Party Components
 import { ChevronDown } from 'react-feather'
+
 import DataTable from 'react-data-table-component'
 
 // ** Reactstrap Imports
@@ -19,7 +20,7 @@ const InstrumentsTable = () => {
           <DataTable
             noHeader
             data={[
-              { symbol: 'EURUSD' },
+              { symbol: 'EURUSD', signal: '292020' },
               { symbol: 'XAUUSD' },
               { symbol: 'AUDUSD' },
               { symbol: 'GBPUSD' },

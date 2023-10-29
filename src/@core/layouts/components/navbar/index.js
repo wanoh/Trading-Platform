@@ -26,7 +26,7 @@ const ThemeNavbar = (props) => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    setExpirationTime(userData.expirationTime)
+    setExpirationTime(userData?.expirationTime)
   }, [userData])
 
   useEffect(() => {

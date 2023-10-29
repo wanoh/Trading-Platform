@@ -1,10 +1,6 @@
 import axios from 'axios'
 import { Badge } from 'reactstrap'
-import {
-  removeSelectedInstrument,
-  setActiveInstrument,
-  setSelectedInstruments,
-} from '../store'
+import { setActiveInstrument, setSelectedInstruments } from '../store'
 import { store } from '../../../../redux/store'
 
 const handleInstrumentChange = (data) => {
@@ -28,13 +24,17 @@ export const reOrderColumns = [
         {row.symbol}
       </Badge>
     ),
+    style: {
+      position: 'sticky',
+      left: 0,
+      zIndex: 1,
+    },
   },
   {
     name: 'Signal',
     reorder: true,
     sortable: true,
     minWidth: '225px',
-    fixed: 'right',
     selector: (row) => row.signal,
   },
   {
